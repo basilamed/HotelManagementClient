@@ -54,8 +54,19 @@
     <div *ngIf="ConfirmPassword?.touched && ConfirmPassword?.invalid">
         <div *ngIf="ConfirmPassword?.errors?.['required']" class="alert ">ConfirmPassword is required</div>
     <div *ngIf="form?.errors?.['passwordMismatch']" class="alert ">Passwords do not match</div>
-
+</div>
+<br>
+<br>
+<div class="form-group">
+    <label for="password"><b>I register as</b></label>
+    <div style="display: flex; justify-content: space-between;">
+          <select class="form-control bg-secondary-theme" id="role">
+            <option value="3">Guest</option>
+            <option value="2">Employee</option>
+          </select>
     </div>
+</div>
+<br>
     
   <!--implementacija dugmadi fali-->
       <button type="submit">Register</button>
@@ -64,3 +75,4 @@
     <span> <a routerLink="/login" routerLinkActive="active">Already have an account?</a></span>
     </div>
 </div>
+</form>

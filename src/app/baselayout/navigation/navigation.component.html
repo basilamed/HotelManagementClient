@@ -1,7 +1,9 @@
 
  <nav class="navbar navbar-expand-sm" >
     <div class="container">
-        <span><a routerLink="/register" routerLinkActive="active">Register now</a></span>
-        <span><a routerLink="/login" routerLinkActive="active">Log in</a></span>
+        <span><a routerLink="/register" *ngIf="!userService.isLogedIn()" routerLinkActive="active">Register now</a></span>
+        <span><a routerLink="/login" *ngIf="!userService.isLogedIn()" routerLinkActive="active">Log in</a></span>
+        <span><a routerLink="/login" *ngIf="userService.isLogedIn()"  routerLinkActive="active">{{user.firstName}} {{user.lastName}}</a></span>
+        <span (click)="logout()"><a routerLink="/" *ngIf="userService.isLogedIn()"  routerLinkActive="active">Log out</a></span>
     </div>
 </nav>

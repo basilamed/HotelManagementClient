@@ -12,6 +12,7 @@ import { ChangepwComponent } from './forms/changepw/changepw.component';
 import { HomeComponent } from './pages/home/home.component';
 import { NavigationComponent } from './baselayout/navigation/navigation.component';
 import { TermsComponent } from './pages/terms/terms.component';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,9 @@ import { TermsComponent } from './pages/terms/terms.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule  ],
+    ReactiveFormsModule,
+    HttpClientModule,  
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })

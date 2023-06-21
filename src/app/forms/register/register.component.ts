@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { FormControl,FormArray, FormGroup, Validators } from '@angular/forms';
 import { CustomValidator } from './email.validators';
 import { CustomValidatorP } from './password.validators';
+import { RegisterDto, UserService } from 'src/app/services/user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -11,7 +13,7 @@ import { CustomValidatorP } from './password.validators';
 export class RegisterComponent {
 
   error: boolean = false;
-  //constructor(private userService: UserService, @Inject(Router) private router: Router) { }
+  constructor(private userService: UserService, private router: Router) { }
 
   form = new FormGroup({
     fname: new FormControl('', [Validators.required, Validators.minLength(3), CustomValidator.cannotContaintSpace]),
@@ -39,8 +41,26 @@ get Lname() {
   get ConfirmPassword(){
     return this.form.get('confirmPassword');
   }
+
 login (){
-  console.log(this.form.value)
+  if(this.form.valid){
+    const dto: RegisterDto = {
+      firstName: this.Fname?.value ?? '',
+      lastName: this.Lname?.value ?? '',
+      userName: this.Email?.value ?? '',
+      password: this.Password?.value ?? '',
+      roleId: +(document.getElementById('role') as HTMLInputElement).value
+    }
+    this.userService.register(dto).subscribe((data: any) => {
+      console.log('User registered successfully:', data);
+      this.router.navigate(['/login']);
+    },
+    (error: any) => {
+      console.error('Error registering user:', error);
+      this.error = true;
+    })
+  }
 }
 }
+
  
