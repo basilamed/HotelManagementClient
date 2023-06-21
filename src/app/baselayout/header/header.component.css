@@ -1,11 +1,7 @@
-
-
 nav {
-    height: 100px;
+    height: 90px;
     width: 100%;
-    
     background-color: #0f283c;
-    
 }
 
 .site-logo {
@@ -13,6 +9,6 @@ nav {
 }
 
 img{
-    height: 80px;
+    height: 85px;
     margin:auto;
 }
