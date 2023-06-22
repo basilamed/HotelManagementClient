@@ -1,0 +1,37 @@
+<section class="featured-section">
+    <div class="container-fluid">
+        <div class="home">
+    
+            <img src="../../assets/images/hotel.jpg" alt="slika hotela" class="home-hotel">
+            <div class="text">
+                <h1>WELCOME TO YOUR DREAMS</h1>
+            </div>
+            
+        </div>
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <h2>Accommodation units</h2>
+                <p>Our asortment of luxurious rooms :) </p>
+            </div>
+        </div>
+        <br>
+        <div class="row justify-content-center">
+            <div class="col-lg-3" *ngFor="let u of units">
+                <div (click)="openInfo(u.id)">
+                <mat-card >
+                    <mat-card-header>
+                        <mat-card-title>{{u.name}}</mat-card-title>
+                    </mat-card-header>
+                    <img [src]="u.image">
+                    <br>
+                    <mat-card-content>
+                        <p>The room type: {{u.type}}</p>
+                        <p>The floor that the room is on: {{u.floor}}</p>
+                        <p>The maximum capacity of the room: {{u.capacity}}</p>
+                    </mat-card-content>
+                </mat-card>
+            </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -13,7 +13,12 @@ import { HomeComponent } from './pages/home/home.component';
 import { NavigationComponent } from './baselayout/navigation/navigation.component';
 import { TermsComponent } from './pages/terms/terms.component';
 import {HttpClientModule} from '@angular/common/http';
-
+import { AddAccomodationComponent } from './forms/add-accomodation/add-accomodation.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatCardModule} from '@angular/material/card';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { AccommodationUnitsComponent } from './pages/accommodation-units/accommodation-units.component';
+import { AccommodationUnitDetailsComponent } from './pages/accommodation-unit-details/accommodation-unit-details.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,6 +30,9 @@ import {HttpClientModule} from '@angular/common/http';
     HomeComponent,
     NavigationComponent,
     TermsComponent,
+    AddAccomodationComponent,
+    AccommodationUnitsComponent,
+    AccommodationUnitDetailsComponent,
    
   ],
   imports: [
@@ -32,7 +40,10 @@ import {HttpClientModule} from '@angular/common/http';
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule,  
+    HttpClientModule,
+    BrowserAnimationsModule,  
+    MatSlideToggleModule,
+    MatCardModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
