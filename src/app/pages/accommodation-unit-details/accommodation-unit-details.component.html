@@ -1,6 +1,8 @@
+
 <div class="section p-5">
     <div class="container">
-        <h1 class="">{{accommodationUnit.name}} room</h1>
+        <span><h1 class="">{{accommodationUnit.name}} room</h1></span>
+        <span><button mat-fab color="warn"  (click)="openConfirmationDialog()" *ngIf="userService.isEmployee() || userService.isOwner()">Delete accommodation unit</button></span>
         <img [src]="accommodationUnit.image" alt="beautifull hotel room">
        
         <p>Indulge in the epitome of luxury in our meticulously designed hotel room on floor {{accommodationUnit.floor}}. Immerse yourself in opulence and refinement as you step into a sanctuary of elegance and comfort. The room boasts lavish furnishings, exquisite decor, and meticulous attention to detail, ensuring a truly unforgettable stay.

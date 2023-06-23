@@ -17,3 +17,10 @@ a{
     color: white;
     padding: 0px 15px 15px 15px;
 }
+mat-menu-item{
+    padding: 0px 15px 15px 15px;
+    color: #0f283c;
+}
+.menu:hover{
+    cursor: pointer;
+}

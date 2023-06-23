@@ -4,6 +4,6 @@
     <div class="text">
         <h1>WELCOME TO YOUR DREAMS</h1>
     </div>
-    <span ><a routerLink="acc" routerLinkActive="active"> --View our lux accommodation options-- </a></span>
+    <a routerLink="acc" routerLinkActive="active" *ngIf="currentUrl == '/'"> --View our lux accommodation options-- </a>
     
 </div>

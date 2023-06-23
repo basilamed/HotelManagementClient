@@ -39,6 +39,14 @@ export class UserService {
     return false;
   }
 
+  hasImage(){
+    const user = JSON.parse(localStorage.getItem('user') || '{}');
+    if(user.image){
+      return true;
+    }
+    return false;
+  }
+
   isEmployee(){
     const user = JSON.parse(localStorage.getItem('user') || '{}');
     if(user.roleId === 2){
@@ -54,6 +62,14 @@ export class UserService {
     }
     return false;
   }
+
+  getUserById(id: string){
+    return this.http.get(`${this.url}/User/get-by-id/${id}`);
+  }
+
+  updateUser(id: string, dto: UpdateDto){
+    return this.http.put(`${this.url}/User/update/${id}`, dto);
+  }
 }
 
 export interface RegisterDto{
@@ -62,4 +78,10 @@ export interface RegisterDto{
   userName: string;
   roleId: number;
   password: string;
+}
+
+export interface UpdateDto{
+  firstName: string;
+  lastName: string;
+  image: string;
 }

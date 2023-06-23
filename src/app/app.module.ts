@@ -17,8 +17,15 @@ import { AddAccomodationComponent } from './forms/add-accomodation/add-accomodat
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatCardModule} from '@angular/material/card';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import {MatIconModule} from '@angular/material/icon';
+import {MatMenuModule} from '@angular/material/menu';
 import { AccommodationUnitsComponent } from './pages/accommodation-units/accommodation-units.component';
 import { AccommodationUnitDetailsComponent } from './pages/accommodation-unit-details/accommodation-unit-details.component';
+import { EditProfileComponent } from './forms/edit-profile/edit-profile.component';
+import { ConfirmationComponent } from './confirmation/confirmation.component';
+import { MatDialogModule } from '@angular/material/dialog';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,6 +40,8 @@ import { AccommodationUnitDetailsComponent } from './pages/accommodation-unit-de
     AddAccomodationComponent,
     AccommodationUnitsComponent,
     AccommodationUnitDetailsComponent,
+    EditProfileComponent,
+    ConfirmationComponent,
    
   ],
   imports: [
@@ -44,6 +53,9 @@ import { AccommodationUnitDetailsComponent } from './pages/accommodation-unit-de
     BrowserAnimationsModule,  
     MatSlideToggleModule,
     MatCardModule,
+    MatIconModule,
+    MatMenuModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]

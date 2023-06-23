@@ -1,1 +1,88 @@
-<p>add-accomodation works!</p>
+<div class="container">
+    <div class="row">
+      <div class="text-center">
+        <br>
+        <h1 class="text-theme-primary">Add Accomodation Unit</h1>
+        <p>Please fill in this form to add an accommodation unit</p>
+      </div>
+    </div>
+    <form [formGroup]="form">
+      <div class="row">
+        <div class="col-md-7">
+          <div class="card shadow-effect">
+            <div class="card-body">
+              <div class="form-group">
+                <label for="name">Accomodation Unit Name</label>
+                <input formControlName="name" type="text" class="form-control" id="name" placeholder="Enter Unit Name">
+                <div *ngIf="Name?.touched && Name?.invalid">
+                  <p *ngIf="Name?.errors?.['required']" class="errors">Name is required</p>
+                </div>
+              </div>
+              <br>
+              <div class="form-group">
+                <label for="name">Floor</label>
+                <input formControlName="floor" type="number" class="form-control" id="floor" placeholder="Enter the floor that the unit is on">
+                <div *ngIf="Floor?.touched && Floor?.invalid">
+                  <p *ngIf="Floor?.errors?.['required']" class="errors">Unit floor is required</p>
+                  <p *ngIf="Floor?.errors?.['min']" class="errors">It has to be greater or equal to 2</p>
+                  <p *ngIf="Floor?.errors?.['max']" class="errors">It can not be greater than 6</p>
+                </div>
+              </div>
+              <br>
+              <div class="form-group">
+                <label for="name">Capacity</label>
+                <input formControlName="capacity" type="number" class="form-control" id="capacity" placeholder="Enter the maximum capacity of the room">
+                <div *ngIf="Capacity?.touched && Capacity?.invalid">
+                  <p *ngIf="Capacity?.errors?.['required']" class="errors">Capacity is required</p>
+                  <p *ngIf="Capacity?.errors?.['min']" class="errors">It has to be greater or equal to 1</p>
+                  <p *ngIf="Capacity?.errors?.['max']" class="errors">It can not be greater than 7</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-5">
+          <div class="card shadow-effect">
+            <div class="card-body">
+              <div class="form-group">
+                <label>Select Type:</label>
+                <select formControlName="type" class="form-control" id="type">
+                  <option value="Single bed">Single bed</option>
+                  <option value="Two beds">Two beds</option>
+                  <option value="Three beds">Three beds</option>
+                  <option value="Four beds">Four beds</option>
+                </select>
+              </div>
+              <br>
+                <div class="form-group">
+                <label>Select Characteristics type:</label>
+                <div formArrayName="characteristicsId">
+                  <label *ngFor="let c of characteristics; let i = index">
+                    <input type="checkbox" [formControlName]="c.id"> {{ c.name }}
+                  </label>
+                </div>
+              </div>
+              <br>
+              <div class="form-group">
+                <label>Select Minibar type:</label>
+                <select formControlName="minibarId" class="form-control" id="minibarId">
+                  <option *ngFor="let minibar of minibars" [value]="minibar.id">{{ minibar.name }}</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="image">Upload Image</label>
+                <input formControlName="image" type="file" class="form-control" id="imageInput" placeholder="Enter Decor Name">
+                <div *ngIf="Image?.touched && Image?.invalid">
+                  <p *ngIf="Image?.errors?.['required']" class="errors">Image is required</p>
+                </div>
+              </div>
+              <br>
+              <button class="btn btn-primary btn-block btn-theme"  (click)="addAccommodationUnit()"> Add Accomodation Unit</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+    <br>
+    <br>
+  </div>

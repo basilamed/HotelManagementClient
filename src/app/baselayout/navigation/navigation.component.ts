@@ -20,5 +20,6 @@ export class NavigationComponent implements OnInit{
   logout(){
     this.userService.logout();
   }
+  
 }
  

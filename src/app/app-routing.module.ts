@@ -7,6 +7,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { TermsComponent } from './pages/terms/terms.component';
 import { AccommodationUnitsComponent } from './pages/accommodation-units/accommodation-units.component';
 import { AccommodationUnitDetailsComponent } from './pages/accommodation-unit-details/accommodation-unit-details.component';
+import { AddAccomodationComponent } from './forms/add-accomodation/add-accomodation.component';
 
 
 const routes: Routes = [
@@ -16,6 +17,7 @@ const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'acc', component:AccommodationUnitsComponent},
   { path: 'acc/:id', component:AccommodationUnitDetailsComponent},
+  { path: 'addAcc', component:AddAccomodationComponent},
 
   { path: 'terms', component: TermsComponent },
    
