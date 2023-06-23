@@ -38,6 +38,14 @@
                   <p *ngIf="Capacity?.errors?.['max']" class="errors">It can not be greater than 7</p>
                 </div>
               </div>
+              <br>
+              <div class="form-group">
+                <label for="name">Description</label>
+                <textarea formControlName="description" class="form-control" id="description" placeholder="Enter the description of the room"></textarea>
+                <div *ngIf="Description?.touched && Description?.invalid">
+                  <p *ngIf="Description?.errors?.['required']" class="errors">Description is required</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -57,9 +65,11 @@
                 <div class="form-group">
                 <label>Select Characteristics type:</label>
                 <div formArrayName="characteristicsId">
-                  <label *ngFor="let c of characteristics; let i = index">
-                    <input type="checkbox" [formControlName]="c.id"> {{ c.name }}
-                  </label>
+                  <div *ngFor="let c of characteristics; let i = index">
+                    <label>
+                      <input type="checkbox" [formControlName]="i"> {{ c.name }}
+                    </label>
+                  </div>
                 </div>
               </div>
               <br>

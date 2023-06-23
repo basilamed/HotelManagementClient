@@ -20,7 +20,7 @@ export class AccommodationUnitsService {
     return this.http.get(this.url + '/AccommodationUnit/get-by-id/' + id);
   }
 
-  addAccommodationUnit(AccommodationUnit : SaveAccommodationUnit, id: number){
+  addAccommodationUnit(AccommodationUnit : SaveAccommodationUnit){
     return this.http.post(this.url + `/AccommodationUnit/add`, AccommodationUnit);
   }
 
@@ -33,13 +33,15 @@ export class AccommodationUnitsService {
   }
 }
 
-export interface SaveAccommodationUnit{
+export interface SaveAccommodationUnit {
   capacity: number;
   floor: number;
   image: string;
   name: string;
   type: string;
-  characteristicsId: number;
+  characteristicsIds: number[];  // Promenjeno ime polja
   minibarId: number;
+  description: string;
 }
+
 
