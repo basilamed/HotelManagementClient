@@ -1,0 +1,28 @@
+<div class="section p-5" id="sec">
+    <div class="container">
+        <span><h1 class="">{{userDetails.firstName}}</h1></span>
+       
+
+        <ng-container *ngIf="userService.hasImage()">
+            <img [src]="userDetails.image" alt="User Image">
+          </ng-container>
+          
+          <ng-container *ngIf="!userService.hasImage()">
+            <!--Ovo nece nesto-->
+            <img src="../../../assets/images/profile.jpg" alt="Fallback Image" *ngIf="userDetails.image === null">
+          </ng-container>
+
+        <p>{{userDetails.description}}</p>
+        
+        <p>Name: {{userDetails.firstName}}</p>
+        <p>Last name: {{userDetails.lastName}}</p>
+        <p>Email : {{userDetails.userName}}</p>
+        <p>Type of worker: //ceka bekend</p>
+        </div>
+        <span>
+        <!--Ceka delete user-->
+            <!--<button  (click)="openConfirmationDialog()" *ngIf="userService.isOwner()">Delete user</button>-->
+        </span>
+    
+</div>
+

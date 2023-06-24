@@ -11,6 +11,8 @@ import { AddAccomodationComponent } from './forms/add-accomodation/add-accomodat
 import { AuthGuard } from './auth.guard';
 import { EditAccommodationComponent } from './forms/edit-accommodation/edit-accommodation.component';
 import { EditProfileComponent } from './forms/edit-profile/edit-profile.component';
+import { UsersComponent } from './pages/users/users.component';
+import { UserDetailsComponent } from './pages/user-details/user-details.component';
 
 
 const routes: Routes = [
@@ -23,7 +25,9 @@ const routes: Routes = [
   { path: 'addAcc', component:AddAccomodationComponent, canActivate: [AuthGuard]},
   { path: 'editAcc/:id', component:EditAccommodationComponent, canActivate: [AuthGuard]},
   { path: 'terms', component: TermsComponent },
-  { path : 'editProfile/:id', component: EditProfileComponent, canActivate: [AuthGuard]}
+  { path : 'editProfile/:id', component: EditProfileComponent, canActivate: [AuthGuard]},
+  { path: 'list-of-users', component: UsersComponent, canActivate: [AuthGuard]},
+  { path: 'user/:id', component: UserDetailsComponent, canActivate: [AuthGuard]}
    
 ];
 
