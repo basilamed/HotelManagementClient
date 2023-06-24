@@ -20,7 +20,7 @@ export class AccommodationUnitsComponent {
     err => {
       console.log(err)
     })
-  }
+  } 
 
   openInfo(id: number){
     this.router.navigate([`/acc/${id}`])

@@ -25,6 +25,8 @@ import { EditProfileComponent } from './forms/edit-profile/edit-profile.componen
 import { ConfirmationComponent } from './confirmation/confirmation.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { EditAccommodationComponent } from './forms/edit-accommodation/edit-accommodation.component';
+import { UsersComponent } from './pages/users/users.component';
+import { UserDetailsComponent } from './pages/user-details/user-details.component';
 
 
 @NgModule({
@@ -44,6 +46,8 @@ import { EditAccommodationComponent } from './forms/edit-accommodation/edit-acco
     EditProfileComponent,
     ConfirmationComponent,
     EditAccommodationComponent,
+    UsersComponent,
+    UserDetailsComponent,
    
   ],
   imports: [

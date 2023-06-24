@@ -46,6 +46,13 @@ export class UserService {
     }
     return false;
   }
+  hasEImage(){
+    const user = JSON.parse(localStorage.getItem('user') || '{}');
+    if(user.image === null){
+      return true;
+    }
+    return false;
+  }
 
   isEmployee(){
     const user = JSON.parse(localStorage.getItem('user') || '{}');
@@ -69,6 +76,10 @@ export class UserService {
 
   updateUser(id: string, dto: UpdateDto){
     return this.http.put(`${this.url}/User/update/${id}`, dto);
+  }
+
+  getAllUsers(){  
+    return this.http.get(`${this.url}/User/all`);
   }
 }
 
