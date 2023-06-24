@@ -1,1 +1,35 @@
-<p>edit-profile works!</p>
+<div class="container col-6">
+<form [formGroup]="form">
+  
+    <div class="container">
+      <div class="text-center">
+        <h2 class="text-theme-primary">Edit profile</h2>
+        <p>Please enter the information you want to change</p>
+    </div>
+    <div class="form-group">
+        <label for="name">Your Name</label>
+        <input formControlName="name" type="text" class="form-control" id="name" placeholder="Enter your First name">
+        <div *ngIf="Name?.touched && Name?.invalid">
+          <p *ngIf="Name?.errors?.['required']" class="errors">Name is required</p>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="surname">Your Last Name</label>
+        <input formControlName="surname" type="text" class="form-control" id="surname" placeholder="Enter your Last name">
+        <div *ngIf="Surname?.touched && Surname?.invalid">
+          <p *ngIf="Surname?.errors?.['required']" class="errors">Name is required</p>
+        </div>
+      </div>
+      
+  <div class="form-group">
+    <label for="image">Upload Image</label>
+    <input formControlName="image" type="file" accept="image/*" (change)="onImageSelected($event)" class="form-control" id="imageInput">
+    <div *ngIf="Image?.touched && Image?.invalid">
+      <p *ngIf="Image?.errors?.['required']" class="errors">Image is required</p>
+    </div>
+  </div>
+  <br>
+  <button (click)="openConfirmationDialog()">Update Profile</button>
+</div>
+</form>
+</div>

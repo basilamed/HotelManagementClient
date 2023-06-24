@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from 'src/app/services/user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-navigation',
@@ -9,7 +10,8 @@ import { UserService } from 'src/app/services/user.service';
 export class NavigationComponent implements OnInit{
 
   user: any = [];
-  constructor(public userService:UserService) {}
+  constructor(public userService:UserService, public router: Router) {}
+
   ngOnInit(): void {
     const userJSON = localStorage.getItem('user');
     if (userJSON) {
@@ -19,6 +21,9 @@ export class NavigationComponent implements OnInit{
 
   logout(){
     this.userService.logout();
+  }
+  openInfo(id: number){
+    this.router.navigate([`/editProfile/${id}`])
   }
   
 }

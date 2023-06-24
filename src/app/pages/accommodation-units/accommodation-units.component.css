@@ -1,4 +1,4 @@
-img{
+#img{
     height: 200px;
     width: auto;
     margin: 15px;
@@ -8,4 +8,15 @@ img{
 .text {
     padding: 25px;
     color: #0f283c
+  }
+  #units{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    flex-direction: row;
+    width: 90%;
+    margin: auto;
+  }
+  #unit{
+    padding: 20px;
   }

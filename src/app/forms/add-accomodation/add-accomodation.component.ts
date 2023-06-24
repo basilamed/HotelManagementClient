@@ -151,8 +151,6 @@ export class AddAccomodationComponent implements OnInit {
     description: this.Description?.value ?? ''
   };
   
-
-
       console.log(AccommodationUnit);
       console.log(AccommodationUnit.characteristicsIds);
 

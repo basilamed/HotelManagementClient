@@ -24,7 +24,7 @@ export class AccommodationUnitsService {
     return this.http.post(this.url + `/AccommodationUnit/add`, AccommodationUnit);
   }
 
-  updateAccommodationUnit(AccommodationUnit : SaveAccommodationUnit, id: number){
+  updateAccommodationUnit(AccommodationUnit : UpdateAccommodationUnit, id: number){
     return this.http.put(this.url + `/AccommodationUnit/update/${id}`, AccommodationUnit);
   }
 
@@ -41,6 +41,15 @@ export interface SaveAccommodationUnit {
   type: string;
   characteristicsIds: number[];  // Promenjeno ime polja
   minibarId: number;
+  description: string;
+}
+
+export interface UpdateAccommodationUnit {
+  capacity: number;
+  floor: number;
+  image: string;
+  name: string;
+  type: string;
   description: string;
 }
 

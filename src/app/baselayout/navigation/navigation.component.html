@@ -13,7 +13,7 @@
         <mat-menu #menu="matMenu">
            <button mat-menu-item (click)="logout()">Logout</button>
            <span><a  mat-menu-item routerLink="/addAcc" *ngIf="userService.isEmployee() || userService.isOwner()"  routerLinkActive="active">Add accommodation unit</a></span>
-           <span><a  mat-menu-item routerLink="/addAcc" *ngIf="userService.isLogedIn()"  routerLinkActive="active">Edit profile</a></span>
+           <span><a  mat-menu-item (click)="openInfo(user.id)" *ngIf="userService.isLogedIn()"  routerLinkActive="active">Edit profile</a></span>
        
         </mat-menu>
     </div>

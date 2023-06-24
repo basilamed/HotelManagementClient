@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { AccommodationUnitsService } from 'src/app/services/accommodation-units.service';
+import { AccommodationUnitsService} from 'src/app/services/accommodation-units.service';
 import { UserService } from 'src/app/services/user.service';
 import { OnInit } from '@angular/core';
 import { ConfirmationComponent } from 'src/app/confirmation/confirmation.component';
@@ -57,6 +57,10 @@ export class AccommodationUnitDetailsComponent implements OnInit {
     err => {
       console.log(err);
     })
+  }
+
+  Update(){
+    this.Router.navigate(['editAcc/' + this.id]);
   }
  
 

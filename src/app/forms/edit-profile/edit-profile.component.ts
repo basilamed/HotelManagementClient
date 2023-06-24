@@ -4,46 +4,66 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UpdateDto, UserService } from 'src/app/services/user.service';
 import { MatDialog } from '@angular/material/dialog';
-//import { ConfirmationDialogComponent } from '../../confirmation-dialog/confirmation-dialog.component';
+import { ConfirmationComponent } from 'src/app/confirmation/confirmation.component';
 
 @Component({
   selector: 'app-edit-profile',
   templateUrl: './edit-profile.component.html',
   styleUrls: ['./edit-profile.component.css']
 })
-export class EditProfileComponent implements OnInit{
+export class EditProfileComponent{
+  user: any = {};
+  id: string = '';
+  imageData: string = "";
+  error: boolean = false;
 
-  user: any = [];
-  id: string = "";
-  image: string = "";
-  error = false;
-  success = false;
-  imageData: string | null = null;
 
-  constructor(public userService: UserService, private route: ActivatedRoute, public dialog: MatDialog, private router: Router) { }
+  form = new FormGroup({
+    name: new FormControl('', [Validators.required]),
+    surname: new FormControl('', [Validators.required]),
+    image: new FormControl('', [Validators.required])
+  })
 
- /* openConfirmationDialog(): void {
-    const dialogRef = this.dialog.open(ConfirmationDialogComponent);
-  
-    dialogRef.afterClosed().subscribe(result => {
+  constructor(private router: ActivatedRoute, public UserService: UserService,
+    public userService : UserService, public dialog: MatDialog, public Router : Router) { }
+
+ ngOnInit(): void {
+   this.router.paramMap.subscribe(params => {
+     this.id = String(params.get('id') ?? '');
+     this.UserService.getUserById(this.id).subscribe(data => {
+       this.user = data;
+       console.log(this.user)
+       this.form.patchValue({
+         name: this.user.name,
+         surname: this.user.surname
+        //image: this.user.image
+       })
+     })
+   })
+  }
+
+  async openConfirmationDialog(): Promise<void> {
+    const dialogRef = this.dialog.open(ConfirmationComponent);
+    try {
+      const result = await dialogRef.afterClosed().toPromise();
       if (result) {
-        this.router.navigate(['']);
+        await this.updateUser();
+        this.Router.navigate([`/`]);
       }
-    });
-  }*/
-  
-  ngOnInit(): void {
-    this.route.paramMap.subscribe(params => {
-      this.id = params.get('id')!;
-      this.userService.getUserById(this.id).subscribe(data => {
-        this.user = data;
-        this.image = this.user.image;
-        this.updateProfileForm.patchValue({
-          firstName: this.user.firstName,
-          lastName: this.user.lastName,
-        })
-      })
-    })
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  get Name() {
+    return this.form.get('name');
+  }
+  get Surname() {
+    return this.form.get('surname');
+  }
+
+  get Image() {
+    return this.form.get('image');
   }
 
   onImageSelected(event: any) {
@@ -54,7 +74,6 @@ export class EditProfileComponent implements OnInit{
     };
     reader.readAsDataURL(file);
   }
-
   dataURItoBlob(dataURI: string): Blob {
     const byteString = atob(dataURI.split(',')[1]);
     const mimeString = dataURI.split(',')[0].split(':')[1].split(';')[0];
@@ -65,70 +84,35 @@ export class EditProfileComponent implements OnInit{
     }
     return new Blob([ab], { type: mimeString });
   }
-  
-  refreshUserData() {
-    this.userService.getUserById(this.id).subscribe(data => {
-      this.user = data;
-      this.image = this.user.image;
-      this.updateProfileForm.patchValue({
-        firstName: this.user.firstName,
-        lastName: this.user.lastName,
-        email: this.user.email,
-        phoneNumber: this.user.phoneNumber,
-      });
-      this.imageData = null;
-    });
-  }
 
-  updateProfileForm = new FormGroup({
-    firstName: new FormControl('', [Validators.required]),
-    lastName: new FormControl('', [Validators.required]),
-    email: new FormControl('', [Validators.required, Validators.email]),
-    phoneNumber: new FormControl('', [Validators.required]),
-   })
-
-    get FirstName(){
-      return this.updateProfileForm.get('firstName');
-    }
-
-    get LastName(){
-      return this.updateProfileForm.get('lastName');
-    }
-
-    
-    update() {
-     
+  async updateUser(): Promise<void> {
+    try {
       if (this.imageData) {
         const formData = new FormData();
         formData.append('image', this.imageData);
-        const u: UpdateDto = {
-          firstName: this.FirstName?.value ?? '',
-          lastName: this.LastName?.value ?? '',
-          image: this.imageData
+        const d: UpdateDto = {
+          firstName: this.Name?.value ?? '',
+          image: this.imageData,
+          lastName: this.Surname?.value ?? '',
         };
-        this.userService.updateUser(this.id, u).subscribe(response => {
-          this.refreshUserData();
-          this.success = true;
-        },
-        error => {
-          this.error = true;
-          });
+        console.log(d);
+        await this.UserService.updateUser(this.id, d).toPromise();
+        this.Router.navigate([`/editUser/${this.id}`]);
       } else {
-        const u: UpdateDto = {
-          firstName: this.FirstName?.value ?? '',
-          lastName: this.LastName?.value ?? '',
-          image: this.user.image
+        const d: UpdateDto = {
+          firstName: this.Name?.value ?? '',
+          lastName: this.Surname?.value ?? '',
+          image: this.user.image,
         };
-        this.userService.updateUser(this.id, u).subscribe(response => {
-          this.refreshUserData();
-          this.success = true;
-        },
-        error => {
-          this.error = true;
-          });
+        console.log(d);
+        await this.UserService.updateUser(this.id, d).toPromise();
+        this.Router.navigate([`/editUser/${this.id}`]);
       }
+    } catch (error) {
+      console.log(error);
+      this.error = true;
     }
+  }
+  
 
-    
-    
 }

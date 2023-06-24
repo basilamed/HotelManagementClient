@@ -6,13 +6,8 @@ button{
     padding: 10px;
     border: none;
     border-radius: 5px;
-    color: #fff;
+    background-color: #c09d63;
+    color: white;
     font-weight: 500;
     cursor: pointer;
-}
-.cancel{
-    background-color: rgb(170, 62, 62);
-}
-.confirm{
-    background-color: rgb(47, 186, 47);
 }

@@ -8,6 +8,9 @@ import { TermsComponent } from './pages/terms/terms.component';
 import { AccommodationUnitsComponent } from './pages/accommodation-units/accommodation-units.component';
 import { AccommodationUnitDetailsComponent } from './pages/accommodation-unit-details/accommodation-unit-details.component';
 import { AddAccomodationComponent } from './forms/add-accomodation/add-accomodation.component';
+import { AuthGuard } from './auth.guard';
+import { EditAccommodationComponent } from './forms/edit-accommodation/edit-accommodation.component';
+import { EditProfileComponent } from './forms/edit-profile/edit-profile.component';
 
 
 const routes: Routes = [
@@ -17,11 +20,11 @@ const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'acc', component:AccommodationUnitsComponent},
   { path: 'acc/:id', component:AccommodationUnitDetailsComponent},
-  { path: 'addAcc', component:AddAccomodationComponent},
-
+  { path: 'addAcc', component:AddAccomodationComponent, canActivate: [AuthGuard]},
+  { path: 'editAcc/:id', component:EditAccommodationComponent, canActivate: [AuthGuard]},
   { path: 'terms', component: TermsComponent },
+  { path : 'editProfile/:id', component: EditProfileComponent, canActivate: [AuthGuard]}
    
- 
 ];
 
 @NgModule({

@@ -10,7 +10,6 @@ nav{
     flex-direction: row;
     justify-content: right;
     align-items: center;
-    
 }
 a{
     text-decoration: none;
@@ -23,4 +22,10 @@ mat-menu-item{
 }
 .menu:hover{
     cursor: pointer;
+}
+.profile-image{
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    margin: 0px 0px 0px 10px;
 }

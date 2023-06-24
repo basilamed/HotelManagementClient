@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 })
 export class AccommodationUnitsComponent {
   units: any [] = [];
-
+ 
   constructor(private servise: AccommodationUnitsService, private router: Router) { }
 
   ngOnInit(): void {
