@@ -34,8 +34,8 @@ export class EditProfileComponent{
        this.user = data;
        console.log(this.user)
        this.form.patchValue({
-         name: this.user.name,
-         surname: this.user.surname
+         name: this.user.firstName,
+         surname: this.user.lastName
         //image: this.user.image
        })
      })

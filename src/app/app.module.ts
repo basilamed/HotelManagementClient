@@ -27,6 +27,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { EditAccommodationComponent } from './forms/edit-accommodation/edit-accommodation.component';
 import { UsersComponent } from './pages/users/users.component';
 import { UserDetailsComponent } from './pages/user-details/user-details.component';
+import { AddPriceComponent } from './forms/add-price/add-price.component';
 
 
 @NgModule({
@@ -48,6 +49,7 @@ import { UserDetailsComponent } from './pages/user-details/user-details.componen
     EditAccommodationComponent,
     UsersComponent,
     UserDetailsComponent,
+    AddPriceComponent,
    
   ],
   imports: [

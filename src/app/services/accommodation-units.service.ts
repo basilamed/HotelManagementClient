@@ -7,7 +7,7 @@ import { env } from 'src/app/env';
 })
 export class AccommodationUnitsService {
  
-  private url = env.url;
+  private url = env.url; 
 
 
   constructor(private http: HttpClient) { }
