@@ -27,6 +27,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { EditAccommodationComponent } from './forms/edit-accommodation/edit-accommodation.component';
 import { UsersComponent } from './pages/users/users.component';
 import { UserDetailsComponent } from './pages/user-details/user-details.component';
+import { AddPriceComponent } from './forms/add-price/add-price.component';
 import { UserAproveComponent } from './pages/user-aprove/user-aprove.component';
 import {MatTableModule} from '@angular/material/table';
 import {MatButtonModule} from '@angular/material/button';
@@ -51,6 +52,7 @@ import {MatButtonModule} from '@angular/material/button';
     EditAccommodationComponent,
     UsersComponent,
     UserDetailsComponent,
+    AddPriceComponent,
     UserAproveComponent,
    
   ],

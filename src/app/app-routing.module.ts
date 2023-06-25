@@ -13,6 +13,7 @@ import { EditAccommodationComponent } from './forms/edit-accommodation/edit-acco
 import { EditProfileComponent } from './forms/edit-profile/edit-profile.component';
 import { UsersComponent } from './pages/users/users.component';
 import { UserDetailsComponent } from './pages/user-details/user-details.component';
+import { AddPriceComponent } from './forms/add-price/add-price.component';
 import { UserAproveComponent } from './pages/user-aprove/user-aprove.component';
 import { RoleGuard } from './role.guard';
 
@@ -30,6 +31,7 @@ const routes: Routes = [
   { path : 'editProfile/:id', component: EditProfileComponent, canActivate: [AuthGuard]},
   { path: 'list-of-users', component: UsersComponent, canActivate: [AuthGuard]},
   { path: 'user/:id', component: UserDetailsComponent, canActivate: [AuthGuard]},
+  { path: 'addPrice', component: AddPriceComponent, canActivate: [AuthGuard]},
   { path: 'approve', component: UserAproveComponent, canActivate: [RoleGuard], data: {allowedRole: 1}}
    
 ];
