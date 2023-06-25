@@ -58,7 +58,7 @@ export class EditAccommodationComponent{
       const result = await dialogRef.afterClosed().toPromise();
       if (result) {
         await this.updateAccommodationUnit();
-        this.Router.navigate([`/`]);
+        this.Router.navigate([`/acc/${this.id}`]);
       }
     } catch (error) {
       console.log(error);
