@@ -27,6 +27,9 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { EditAccommodationComponent } from './forms/edit-accommodation/edit-accommodation.component';
 import { UsersComponent } from './pages/users/users.component';
 import { UserDetailsComponent } from './pages/user-details/user-details.component';
+import { UserAproveComponent } from './pages/user-aprove/user-aprove.component';
+import {MatTableModule} from '@angular/material/table';
+import {MatButtonModule} from '@angular/material/button';
 
 
 @NgModule({
@@ -48,6 +51,7 @@ import { UserDetailsComponent } from './pages/user-details/user-details.componen
     EditAccommodationComponent,
     UsersComponent,
     UserDetailsComponent,
+    UserAproveComponent,
    
   ],
   imports: [
@@ -61,7 +65,9 @@ import { UserDetailsComponent } from './pages/user-details/user-details.componen
     MatCardModule,
     MatIconModule,
     MatMenuModule,
-    MatDialogModule
+    MatDialogModule,
+    MatTableModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

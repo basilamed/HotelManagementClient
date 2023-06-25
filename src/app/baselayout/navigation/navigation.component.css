@@ -1,4 +1,4 @@
-nav{
+/* nav{
     height: fit-content;  
     background-color: #0f283c;
     padding: 0px 0px 10px 0px;
@@ -28,4 +28,38 @@ mat-menu-item{
     width: 40px;
     border-radius: 50%;
     margin: 0px 0px 0px 10px;
+} */
+
+nav{
+    height: 50px;
+    background-color: rgb(235, 240, 247);
+    width: 100%;
 }
+
+.nav-link{
+    text-transform: uppercase;
+    color: rgb(34, 34, 182);
+   
+}
+
+.nav-item{
+    margin-right: 10px;
+}
+
+.profile-image {
+    width: 40px; /* Prilagodite veličinu prema potrebi */
+    height: 40px; /* Prilagodite veličinu prema potrebi */
+    border-radius: 50%; /* Postavlja okrugli oblik */
+  }
+
+  .demo-section{
+    margin-left: 50px;
+    margin-right: 10px;
+  }
+
+  .menu{
+    border: none;
+    background-color: rgb(235, 240, 247);
+  }
+  
+

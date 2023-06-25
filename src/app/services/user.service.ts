@@ -79,11 +79,19 @@ export class UserService {
   }
 
   getAllUsers(){  
-    return this.http.get(`${this.url}/User/all`);
+    return this.http.get(`${this.url}/User/all-approved`);
   }
 
   deleteUser(id: string){
     return this.http.delete(`${this.url}/User/delete/${id}`);
+  }
+
+  getNotApproved(){
+    return this.http.get(`${this.url}/User/all-unapproved`);
+  }
+
+  approve(id: string){
+    return this.http.post(`${this.url}/User/approve/${id}`, null);
   }
 }
 

@@ -53,7 +53,12 @@ login (){
     }
     this.userService.register(dto).subscribe((data: any) => {
       console.log('User registered successfully:', data);
-      this.router.navigate(['/login']);
+      if(dto.roleId === 2){
+        this.router.navigate(['/login'] , { queryParams: { success: 'true' } });
+      }
+      else{
+        this.router.navigate(['/login'] , { queryParams: { success2: 'true' } });
+      }
     },
     (error: any) => {
       console.error('Error registering user:', error);

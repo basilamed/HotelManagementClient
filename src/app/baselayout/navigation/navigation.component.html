@@ -1,5 +1,4 @@
-
- <nav class="navbar" >
+ <!-- <nav class="navbar" >
     <div class="container">
         <span><a routerLink="/register" *ngIf="!userService.isLogedIn()" routerLinkActive="active">Register now</a></span>
         <span><a routerLink="/login" *ngIf="!userService.isLogedIn()" routerLinkActive="active">Log in</a></span>
@@ -15,6 +14,40 @@
            <span><a  mat-menu-item routerLink="/addAcc" *ngIf="userService.isEmployee() || userService.isOwner()"  routerLinkActive="active">Add accommodation unit</a></span>
            <span><a  mat-menu-item (click)="openInfo(user.id)" *ngIf="userService.isLogedIn()"  routerLinkActive="active">Edit profile</a></span>
            <span><a  mat-menu-item  routerLink="/list-of-users" *ngIf="userService.isEmployee() || userService.isOwner()"  routerLinkActive="active">List of users</a></span>
+        </mat-menu>
+    </div>
+</nav> -->
+
+<nav class="navbar navbar-expand-lg">
+    <div class="container">
+        <div class="collapse navbar-collapse justify-content-center">
+            <ul class="navbar-nav">
+                <li class="nav-item mr-5">
+                    <a routerLink="/acc"  class="nav-link">All Units</a>
+                </li>
+                <!-- <li class="nav-item mr-5" *ngIf="userService.isLogedIn()">
+                    <a routerLink="" class="nav-link">Your resevations</a>
+                </li> -->
+                <li class="nav-item mr-5" *ngIf="!userService.isLogedIn()">
+                    <a routerLink="/login" class="nav-link">Sign up/Login</a>
+                </li>
+                <li class="nav-item mr-5" *ngIf="userService.isOwner()">
+                    <a routerLink="/approve" class="nav-link">User Approve</a>
+                </li>
+            </ul>
+        </div>
+        
+        <mat-icon *ngIf="!userService.hasImage() && userService.isLogedIn()" aria-hidden="false" aria-label="Example home icon">account_circle</mat-icon>
+        
+          
+        <img *ngIf="userService.hasImage()" class="profile-image" [src]="user.image" alt="">
+        
+        <button *ngIf="userService.isLogedIn()" mat-button [matMenuTriggerFor]="menu" class="menu">{{user.firstName}} {{user.lastName}}</button>
+         <mat-menu #menu="matMenu">
+             <span><a  mat-menu-item routerLink="/addAcc" *ngIf="userService.isEmployee() || userService.isOwner()"  routerLinkActive="active">Add accommodation unit</a></span>
+             <span><a  mat-menu-item (click)="openInfo(user.id)" *ngIf="userService.isLogedIn()"  routerLinkActive="active">Edit profile</a></span>
+             <span><a  mat-menu-item  routerLink="/list-of-users" *ngIf="userService.isEmployee() || userService.isOwner()"  routerLinkActive="active">List of users</a></span>
+             <button mat-menu-item routerLink="/" (click)="logout()">Logout</button>
        <!--Izbrisati is empolyee gore-->
         </mat-menu>
     </div>

@@ -5,6 +5,8 @@
         <h2 class="text-theme-primary">Login</h2>
         <p>Please enter your information to log in</p>
         <div *ngIf="error" class="alert ">Email and password do not match!</div>
+        <div *ngIf="success" class="alert alert-success">Wait for owner to approve your account</div>
+        <div *ngIf="success2" class="alert alert-success">You have successfully registered your account </div>
     </div>
     <label for="email"><b>Email</b></label>
     <input formControlName="email" id="email" type="text" placeholder="Enter your email">

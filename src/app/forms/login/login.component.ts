@@ -1,6 +1,6 @@
-import { Component, Inject } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { FormControl,FormArray, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { UserService } from 'src/app/services/user.service';
 //import { UserService } from 'src/app/services/user.service';
 
@@ -10,10 +10,24 @@ import { UserService } from 'src/app/services/user.service';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit{
 
   error: boolean = false;
-  constructor(private userService: UserService, @Inject(Router) private router: Router) { }
+  success = false;
+  success2 = false;
+  constructor(private userService: UserService, @Inject(Router) private router: Router, private route: ActivatedRoute) { }
+  ngOnInit(): void {
+    this.route.queryParams.subscribe(params => {
+      const success = params['success'];
+      if (success === 'true') {
+        this.success = true;
+      }
+      const success2 = params['success2'];
+      if (success2 === 'true') {
+        this.success2 = true;
+      }
+    });
+  }
 
   form = new FormGroup({
     email: new FormControl('', [Validators.required]),
