@@ -1,19 +1,50 @@
 
-<div class="section p-5">
+<div class="section">
     <div class="container">
-        <span><h1 class="">{{accommodationUnit.name}} room</h1></span>
+        <table>
+            <tr>
+                <td><img [src]="accommodationUnit.image" alt="hotel room"></td>
+                <td><h1 class="">{{accommodationUnit.name}} room</h1><br>
+                        <ul class="list-container" *ngIf="accommodationUnit.aUnit_Characteristics !== ''">
+                            <ng-container *ngFor="let u of accommodationUnit.aUnit_Characteristics">
+                                 <li [value]="u.characteristics.id" class="list-item">
+                              * {{ u.characteristics.name }}
+                            </li>
+                          </ng-container>
+                          <li  class="list-item">* Internet Access</li>
+                          <li  class="list-item">* TV</li>
+                          <li  class="list-item">* Free Toiletries</li>
+                        </ul>
+                     <p>{{accommodationUnit.description}}</p>
+                </td>
+            </tr>
+            <tr *ngIf="accommodationUnit.prices !== []">
+                <td colspan="2">
+                    <span>
+                        <p *ngIf="accommodationUnit.prices !== []">Price per night: {{accommodationUnit.prices[0].pricePerNight}}$</p>
+                         <p *ngIf="accommodationUnit.prices !== []">Price per person: {{accommodationUnit.prices[0].pricePerPerson}}$</p>
+                    </span>
+                </td>
+            </tr>
+            <tr *ngIf="!accommodationUnit.prices || accommodationUnit.prices.length === 0">
+                <td colspan="2">
+                  <span>
+                    <p>For prices contact: hiddenHotel@gmail.com</p>
+                  </span>
+                </td>
+            </tr>
+            <tr>
+               
+                <td colspan="2">
+                    <span>
+                        <button  (click)="Update()" *ngIf="userService.isEmployee() || userService.isOwner()">Update accommodation unit</button>
+                        <button  (click)="openConfirmationDialog()" *ngIf="userService.isEmployee() || userService.isOwner()">Delete accommodation unit</button>
+                    </span>
+                </td>
+            </tr>
+        </table>
         
-        <img [src]="accommodationUnit.image" alt="hotel room">
-        <p>{{accommodationUnit.description}}</p>
-       
-        <p>Indulge in the epitome of luxury in our meticulously designed hotel room on floor {{accommodationUnit.floor}}. Immerse yourself in opulence and refinement as you step into a sanctuary of elegance and comfort. The room boasts lavish furnishings, exquisite decor, and meticulous attention to detail, ensuring a truly unforgettable stay.
-
-            Experience the pinnacle of comfort with a plush, king-size bed adorned with premium linens and soft pillows that promise a restful night's sleep. Relax in the spacious seating area, tastefully furnished with stylish and comfortable chairs, perfect for unwinding or entertaining guests.The maximum occupancy of this room is {{accommodationUnit.capacity}} adults.
-           </p> 
         </div>
-        <span>
-            <button  (click)="Update()" *ngIf="userService.isEmployee() || userService.isOwner()">Update accommodation unit</button>
-            <button  (click)="openConfirmationDialog()" *ngIf="userService.isEmployee() || userService.isOwner()">Delete accommodation unit</button>
-        </span>
+       
     
 </div>

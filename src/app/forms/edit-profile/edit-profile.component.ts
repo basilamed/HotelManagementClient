@@ -97,7 +97,7 @@ export class EditProfileComponent{
         };
         console.log(d);
         await this.UserService.updateUser(this.id, d).toPromise();
-        this.Router.navigate([`/editUser/${this.id}`]);
+        this.Router.navigate([`/editProfile/${this.id}`]);
       } else {
         const d: UpdateDto = {
           firstName: this.Name?.value ?? '',

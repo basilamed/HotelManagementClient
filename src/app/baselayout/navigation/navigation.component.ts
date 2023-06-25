@@ -25,6 +25,9 @@ export class NavigationComponent implements OnInit{
   openInfo(id: number){
     this.router.navigate([`/editProfile/${id}`])
   }
+  ChangePassword(id: number){
+    this.router.navigate([`/changepw/${id}`])
+  }
   
 }
  
