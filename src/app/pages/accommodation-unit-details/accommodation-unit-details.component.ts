@@ -18,7 +18,10 @@ export class AccommodationUnitDetailsComponent implements OnInit {
   id: number = 0;
   user: any = [];
 
-  constructor(private router: ActivatedRoute, public AccommodationUnitsService: AccommodationUnitsService, public userService : UserService, public dialog: MatDialog, public Router : Router) { }
+  constructor(private router: ActivatedRoute,
+     public AccommodationUnitsService: AccommodationUnitsService,
+      public userService : UserService, public dialog: MatDialog, 
+      public Router : Router) { }
 
   ngOnInit(): void {
     this.router.paramMap.subscribe(params => {

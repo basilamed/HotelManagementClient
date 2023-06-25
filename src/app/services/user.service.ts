@@ -81,6 +81,10 @@ export class UserService {
   getAllUsers(){  
     return this.http.get(`${this.url}/User/all`);
   }
+
+  deleteUser(id: string){
+    return this.http.delete(`${this.url}/User/delete/${id}`);
+  }
 }
 
 export interface RegisterDto{

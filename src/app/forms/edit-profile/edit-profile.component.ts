@@ -47,7 +47,7 @@ export class EditProfileComponent{
     try {
       const result = await dialogRef.afterClosed().toPromise();
       if (result) {
-        await this.updateUser();
+        await this.deleteUser();
         this.Router.navigate([`/`]);
       }
     } catch (error) {
@@ -112,6 +112,10 @@ export class EditProfileComponent{
       console.log(error);
       this.error = true;
     }
+  }
+
+  deleteUser(){ 
+    return this.UserService.deleteUser(this.id);
   }
   
 

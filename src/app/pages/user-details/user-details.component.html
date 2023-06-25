@@ -3,12 +3,11 @@
         <span><h1 class="">{{userDetails.firstName}}</h1></span>
        
 
-        <ng-container *ngIf="userService.hasImage()">
-            <img [src]="userDetails.image" alt="User Image">
+        <ng-container *ngIf="userDetails.image != null">
+            <img [src]="userDetails.image">
           </ng-container>
           
-          <ng-container *ngIf="!userService.hasImage()">
-            <!--Ovo nece nesto-->
+          <ng-container *ngIf="userDetails.image === null">
             <img src="../../../assets/images/profile.jpg" alt="Fallback Image" *ngIf="userDetails.image === null">
           </ng-container>
 
@@ -18,11 +17,12 @@
         <p>Last name: {{userDetails.lastName}}</p>
         <p>Email : {{userDetails.userName}}</p>
         <p>Type of worker: //ceka bekend</p>
-        </div>
         <span>
-        <!--Ceka delete user-->
-            <!--<button  (click)="openConfirmationDialog()" *ngIf="userService.isOwner()">Delete user</button>-->
-        </span>
+          <!--Ceka delete user-->
+              <button  (click)="openConfirmationDialog()" >Delete user</button>
+          </span>
+        </div>
+        
     
 </div>
 
