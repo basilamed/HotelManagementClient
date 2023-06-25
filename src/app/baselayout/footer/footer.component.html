@@ -6,7 +6,7 @@
                     <ul class="nav justify-content-center">
                         <li class="nav-item">
                             <a class="nav-link" routerLink="/">Home</a>
-                            <a class="nav-link" routerLink="/addAcc" *ngIf="userService.isLogedIn() && userService.isEmployee() || userService.isOwner()"  routerLinkActive="active">Add accommodation unit</a>
+                            <a class="nav-link" routerLink="/addAcc" *ngIf="userService.isOwner()"  routerLinkActive="active">Add accommodation unit</a>
                         </li>
                     </ul>
                 </div>

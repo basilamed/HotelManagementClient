@@ -28,6 +28,9 @@ import { EditAccommodationComponent } from './forms/edit-accommodation/edit-acco
 import { UsersComponent } from './pages/users/users.component';
 import { UserDetailsComponent } from './pages/user-details/user-details.component';
 import { AddPriceComponent } from './forms/add-price/add-price.component';
+import { UserAproveComponent } from './pages/user-aprove/user-aprove.component';
+import {MatTableModule} from '@angular/material/table';
+import {MatButtonModule} from '@angular/material/button';
 
 
 @NgModule({
@@ -50,6 +53,7 @@ import { AddPriceComponent } from './forms/add-price/add-price.component';
     UsersComponent,
     UserDetailsComponent,
     AddPriceComponent,
+    UserAproveComponent,
    
   ],
   imports: [
@@ -63,7 +67,9 @@ import { AddPriceComponent } from './forms/add-price/add-price.component';
     MatCardModule,
     MatIconModule,
     MatMenuModule,
-    MatDialogModule
+    MatDialogModule,
+    MatTableModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]
