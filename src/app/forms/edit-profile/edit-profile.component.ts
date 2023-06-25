@@ -48,6 +48,8 @@ export class EditProfileComponent{
       const result = await dialogRef.afterClosed().toPromise();
       if (result) {
         await this.deleteUser();
+        localStorage.removeItem('token');
+        localStorage.removeItem('user');
         this.Router.navigate([`/`]);
       }
     } catch (error) {

@@ -49,7 +49,7 @@ export class AccommodationUnitDetailsComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
         this.delete();
-        this.Router.navigate([`/`]);
+        this.Router.navigate([`/acc`]);
       }
     });
   }
