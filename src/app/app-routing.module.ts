@@ -18,6 +18,8 @@ import { UserAproveComponent } from './pages/user-aprove/user-aprove.component';
 import { RoleGuard } from './role.guard';
 import { MinibarsComponent } from './pages/minibars/minibars.component';
 import { AddMinibarItemsComponent } from './forms/add-minibar-items/add-minibar-items.component';
+import { AddToMinibarComponent } from './forms/add-to-minibar/add-to-minibar.component';
+import { MinibarDetailsComponent } from './pages/minibar-details/minibar-details.component';
 
 const routes: Routes = [
   { path: 'register', component: RegisterComponent},
@@ -32,10 +34,12 @@ const routes: Routes = [
   { path: 'editProfile/:id', component: EditProfileComponent, canActivate: [AuthGuard]},
   { path: 'list-of-users', component: UsersComponent, canActivate: [AuthGuard]},
   { path: 'user/:id', component: UserDetailsComponent, canActivate: [AuthGuard]},
-  { path: 'addPrice', component: AddPriceComponent, canActivate: [AuthGuard]},
-  { path: 'minibars', component: MinibarsComponent, canActivate: [AuthGuard]},
+  { path: 'addPrice/:id', component: AddPriceComponent, canActivate: [AuthGuard]},
+  { path: 'minibar', component: MinibarsComponent, canActivate: [AuthGuard]},
   { path: 'approve', component: UserAproveComponent, canActivate: [RoleGuard], data: {allowedRole: 1}},
-  { path: 'addItems', component: AddMinibarItemsComponent, canActivate: [AuthGuard]}
+  { path: 'addItems', component: AddMinibarItemsComponent, canActivate: [AuthGuard]},
+  { path: 'addToMinibar/:id', component: AddToMinibarComponent, canActivate: [AuthGuard]},
+  { path: 'minibar/:id', component: MinibarDetailsComponent, canActivate: [AuthGuard]}
 ];
 
 @NgModule({

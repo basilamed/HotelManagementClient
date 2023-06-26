@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { MinibarService } from 'src/app/services/minibar.service';
+import { MinibarService, SaveMinibarItem } from 'src/app/services/minibar.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 })
 export class MinibarsComponent {
   minibars: any [] = [];
+  id: number = 0;
 
   constructor(private MinibarService: MinibarService, 
     private router: Router) { }
@@ -21,4 +22,9 @@ export class MinibarsComponent {
       console.log(err)
     })
   } 
+ 
+  
+  openInfo(id: Number){
+    this.router.navigate([`/minibar/${id}`]);
+  }
 }

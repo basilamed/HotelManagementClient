@@ -1,0 +1,25 @@
+<div class="section p-5" id="sec">
+    <div class="container">
+        <span><h1 class="">Mini bar name:{{minibarDetails.name}}</h1></span>
+        <mat-card>
+            <mat-card-content>
+                <p>List of items in the minibar:</p>
+                <ul>
+                    <li *ngFor="let p of minibarDetails.minibar_Items">
+                        <div  class="list-item">
+                            <p>{{p.item.name}} {{p.amount}} units, at the price {{p.item.price}}$ </p>
+                            <a (click)="deleteItem(minibarDetails.id, p.item.id)"><mat-icon>delete_outline</mat-icon></a>
+                        </div>
+                    </li>
+                    <p *ngIf="!minibarDetails.minibar_Items|| minibarDetails.minibar_Items.length === 0">Minibar is empty</p>
+                </ul> <span>
+                    <button (click)="addItem()">Add items to minibar</button>
+                    <button  (click)="openConfirmationDialog()" >Delete minibar</button>
+                </span>
+
+            </mat-card-content>
+        </mat-card>
+        </div>
+        
+    
+</div>

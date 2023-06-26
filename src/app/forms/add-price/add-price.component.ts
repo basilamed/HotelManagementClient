@@ -7,7 +7,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { ConfirmationComponent } from 'src/app/confirmation/confirmation.component';
 
 
-@Component({
+@Component({ 
   selector: 'app-add-price',
   templateUrl: './add-price.component.html',
   styleUrls: ['./add-price.component.css']
@@ -31,18 +31,15 @@ export class AddPriceComponent {
     pricePerNight: new FormControl('', [Validators.required]),
     startDate: new FormControl('', [Validators.required]),
     endDate: new FormControl('', [Validators.required]),
-    accommodationUnitId: new FormControl('', [Validators.required]),
   });
+ 
 
   ngOnInit(): void {
-    this.AccommodationUnitsService.getAccommodationUnits().subscribe((res: any) => {
-      this.units = res;
-      console.log(this.units)
-    },
-    err => {
-      console.log(err)
-    })
-  } 
+    this.route.paramMap.subscribe(params => {
+      this.id = Number(params.get('id') ?? 0);}
+      );  
+    }
+  
   async openConfirmationDialog(): Promise<void> {
     const dialogRef = this.dialog.open(ConfirmationComponent);
     try {
@@ -67,9 +64,6 @@ export class AddPriceComponent {
   get EndDate() {
     return this.form.get('endDate');
   }
-  get AccommodationUnitId() { 
-    return this.form.get('accommodationUnitId');
-  }
 
   async addPrice() {
     
@@ -79,12 +73,12 @@ export class AddPriceComponent {
     pricePerNight: +(this.PricePerNight?.value ?? 0),
     periodOf: new Date(this.StartDate?.value ?? ''),
     periodTo: new Date(this.EndDate?.value ?? ''),
-    accommodationUnitId: +(this.AccommodationUnitId?.value ?? 0),
+    accommodationUnitId: this.id ?? 0,  
   };
 
       this.PriceService.addPrice(Price).subscribe(data => {
         console.log(data);
-        this.router.navigate(['']);
+        this.router.navigate(['/acc/' + this.id]);
       })
     }
 }

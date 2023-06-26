@@ -1,5 +1,5 @@
 <div class="container">
-  <form [formGroup]="form">
+  <form [formGroup]="form"> 
     <div class="row">
       <div class="text-center">
         <br>
@@ -7,13 +7,7 @@
         <p>Please fill in this form to add a price</p>
       </div>
     </div> 
-        <div>
-                <div class="form-group">
-                    <label>Select the room:</label>
-                    <select formControlName="accommodationUnitId" class="form-control" id="accommodationUnitId">
-                      <option *ngFor="let u of units" [value]="u.id">{{ u.name }}</option>
-                    </select>
-                  </div>
+        <div> 
               <div class="form-group">
                 <label for="name">Price per person</label>
                 <input formControlName="pricePerPerson" type="number" class="form-control" id="pricePerPerson" placeholder="Enter the price per person">

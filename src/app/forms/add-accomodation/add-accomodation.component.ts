@@ -9,10 +9,6 @@ interface minibar {
   id: number;
   name: string;
 }
-interface characteristic {
-  id: number;
-  name: string;
-}
 
 @Component({
   selector: 'app-add-accomodation',

@@ -5,3 +5,7 @@ h1{
     text-align: center;
     margin-top: 40px;
 }
+  #minibars{
+    margin-top: 20px;
+    box-shadow: 2px 2px 6px #c3c3c3;
+  }

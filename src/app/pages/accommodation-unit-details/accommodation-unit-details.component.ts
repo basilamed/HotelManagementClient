@@ -18,8 +18,6 @@ export class AccommodationUnitDetailsComponent implements OnInit {
   id: number = 0;
   user: any = [];
 
-
-
   constructor(private router: ActivatedRoute,
      public AccommodationUnitsService: AccommodationUnitsService,
       public userService : UserService, public dialog: MatDialog, 
@@ -54,7 +52,6 @@ export class AccommodationUnitDetailsComponent implements OnInit {
     });
   }
 
-
   delete(){
     this.AccommodationUnitsService.deleteAccommodationUnit(this.id).subscribe(res => {
       console.log(res);
@@ -66,6 +63,9 @@ export class AccommodationUnitDetailsComponent implements OnInit {
 
   Update(){
     this.Router.navigate(['editAcc/' + this.id]);
+  }
+  addPrice(){
+    this.Router.navigate(['addPrice/' + this.id]);
   }
  
 

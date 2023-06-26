@@ -33,6 +33,8 @@ import {MatTableModule} from '@angular/material/table';
 import {MatButtonModule} from '@angular/material/button';
 import { MinibarsComponent } from './pages/minibars/minibars.component';
 import { AddMinibarItemsComponent } from './forms/add-minibar-items/add-minibar-items.component';
+import { AddToMinibarComponent } from './forms/add-to-minibar/add-to-minibar.component';
+import { MinibarDetailsComponent } from './pages/minibar-details/minibar-details.component';
 
 
 @NgModule({
@@ -58,6 +60,8 @@ import { AddMinibarItemsComponent } from './forms/add-minibar-items/add-minibar-
     UserAproveComponent,
     MinibarsComponent,
     AddMinibarItemsComponent,
+    AddToMinibarComponent,
+    MinibarDetailsComponent,
    
   ],
   imports: [
