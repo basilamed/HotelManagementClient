@@ -1,4 +1,5 @@
-<div class="container col-6">
+<div class="container">
+  <form [formGroup]="form">
     <div class="row">
       <div class="text-center">
         <br>
@@ -6,8 +7,6 @@
         <p>Please fill in this form to add a price</p>
       </div>
     </div> 
-    <form [formGroup]="form">
-      <div class="row">
         <div>
                 <div class="form-group">
                     <label>Select the room:</label>
@@ -48,7 +47,8 @@
               </div>
              <span><button (click)="openConfirmationDialog()" [disabled]="!form.valid">Add Price</button></span>
             </div>
-          </div> </form> </div>
+        </form> 
+      </div>
             
     <br>
     <br>

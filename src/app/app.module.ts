@@ -31,6 +31,8 @@ import { AddPriceComponent } from './forms/add-price/add-price.component';
 import { UserAproveComponent } from './pages/user-aprove/user-aprove.component';
 import {MatTableModule} from '@angular/material/table';
 import {MatButtonModule} from '@angular/material/button';
+import { MinibarsComponent } from './pages/minibars/minibars.component';
+import { AddMinibarItemsComponent } from './forms/add-minibar-items/add-minibar-items.component';
 
 
 @NgModule({
@@ -54,6 +56,8 @@ import {MatButtonModule} from '@angular/material/button';
     UserDetailsComponent,
     AddPriceComponent,
     UserAproveComponent,
+    MinibarsComponent,
+    AddMinibarItemsComponent,
    
   ],
   imports: [

@@ -2,19 +2,20 @@
     <div>
         <div class="row">
             <div class="col-md-12 text-center">
-                <h2>Users</h2>
+                <h1>Users</h1>
+                <p id="p">This is a list of all active users. The employees have a gold border,
+                     the clients a blue border and the owners have a gray border.</p>
             </div>
         </div>
         <br>
         <div class="row justify-content-center" id="users">
             <div class="col-lg-5" *ngFor="let u of users">
-                <div (click)="openInfo(u.id)" id="user">
-                <mat-card >
-                    <mat-card-header>
-                        <mat-card-title>{{u.name}}</mat-card-title>
-                    </mat-card-header>
-                    <!--<img [src]="u.image" id="img">-->
-                    <br>
+                <div (click)="openInfo(u.id)" [ngClass]="{
+                    'special-user-1': u.roleId === 1,
+                    'special-user-2': u.roleId === 2,
+                    'special-user-3': u.roleId === 3
+                  }">
+                <mat-card>
                     <mat-card-content>
                         <p>Name: {{u.firstName}}</p>
                         <p>Last name: {{u.lastName}}</p>

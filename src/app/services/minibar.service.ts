@@ -15,4 +15,6 @@ export class MinibarService {
     return this.http.get(this.url + '/Minibar/get-all');
   }
 
+  
+
 }

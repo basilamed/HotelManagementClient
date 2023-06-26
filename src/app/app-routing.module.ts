@@ -16,7 +16,8 @@ import { UserDetailsComponent } from './pages/user-details/user-details.componen
 import { AddPriceComponent } from './forms/add-price/add-price.component';
 import { UserAproveComponent } from './pages/user-aprove/user-aprove.component';
 import { RoleGuard } from './role.guard';
-
+import { MinibarsComponent } from './pages/minibars/minibars.component';
+import { AddMinibarItemsComponent } from './forms/add-minibar-items/add-minibar-items.component';
 
 const routes: Routes = [
   { path: 'register', component: RegisterComponent},
@@ -32,8 +33,9 @@ const routes: Routes = [
   { path: 'list-of-users', component: UsersComponent, canActivate: [AuthGuard]},
   { path: 'user/:id', component: UserDetailsComponent, canActivate: [AuthGuard]},
   { path: 'addPrice', component: AddPriceComponent, canActivate: [AuthGuard]},
-  { path: 'approve', component: UserAproveComponent, canActivate: [RoleGuard], data: {allowedRole: 1}}
-   
+  { path: 'minibars', component: MinibarsComponent, canActivate: [AuthGuard]},
+  { path: 'approve', component: UserAproveComponent, canActivate: [RoleGuard], data: {allowedRole: 1}},
+  { path: 'addItems', component: AddMinibarItemsComponent, canActivate: [AuthGuard]}
 ];
 
 @NgModule({

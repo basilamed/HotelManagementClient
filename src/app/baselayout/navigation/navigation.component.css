@@ -32,14 +32,16 @@ mat-menu-item{
 
 nav{
     height: 50px;
-    background-color: rgb(235, 240, 247);
+    background-color: rgb(232, 232, 232);
     width: 100%;
 }
 
 .nav-link{
     text-transform: uppercase;
-    color: rgb(34, 34, 182);
-   
+    color: #0f283c; 
+}
+.nav-link:hover{
+    opacity: 0.9;
 }
 
 .nav-item{
@@ -59,7 +61,7 @@ nav{
 
   .menu{
     border: none;
-    background-color: rgb(235, 240, 247);
+    background-color: rgb(232, 232, 232);
   }
   
 

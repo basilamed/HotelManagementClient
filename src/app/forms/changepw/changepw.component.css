@@ -27,15 +27,19 @@ form {
   
   /* Set a style for the submit/register button */
   button{
-    background-color: #c09d63;
-    color: white;
-    padding: 16px 20px;
-    margin: 8px 0;
-    border: none;
-    cursor: pointer;
+    margin: 0 auto 15px auto;
+    display: block;
     width: 100%;
-    opacity: 1;
-  }
+    max-width: 300px;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #c09d63;
+    color: #fff;
+    font-weight: 500;
+    cursor: pointer;
+}
+  
   
   button:hover {
     opacity:0.9;

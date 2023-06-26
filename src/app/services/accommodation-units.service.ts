@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { env } from 'src/app/env';
 
-@Injectable({
+@Injectable({ 
   providedIn: 'root'
 })
 export class AccommodationUnitsService {

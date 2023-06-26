@@ -1,0 +1,31 @@
+.row{
+    border: 3px solid #c3c3c3;
+    width: 100%;
+    margin:auto;
+    margin-top: 40px;
+    margin-bottom: 40px ;
+}
+.card{
+    border: none;
+}
+#kartica{
+    margin-top: 20px;
+   border-right: 2px solid #c3c3c3; 
+   border-radius: 0;
+}
+button{
+    margin: 0 auto;
+    display: block;
+    width: 100%;
+    max-width: 300px;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #c09d63;
+    color: #fff;
+    font-weight: 500;
+    cursor: pointer;
+}
+button:hover{
+    opacity: 0.9;
+}

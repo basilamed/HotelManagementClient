@@ -81,8 +81,6 @@ export class AddPriceComponent {
     periodTo: new Date(this.EndDate?.value ?? ''),
     accommodationUnitId: +(this.AccommodationUnitId?.value ?? 0),
   };
-  console.log(this.StartDate?.value);
-      console.log(Price);
 
       this.PriceService.addPrice(Price).subscribe(data => {
         console.log(data);

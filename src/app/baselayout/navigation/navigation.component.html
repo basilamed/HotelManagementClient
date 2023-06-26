@@ -34,7 +34,7 @@
                     <a routerLink="/login" class="nav-link">Sign up/Login</a>
                 </li>
                 <li class="nav-item mr-5" *ngIf="userService.isOwner()">
-                    <a routerLink="/approve" class="nav-link">User Approve</a>
+                    <a routerLink="/approve" class="nav-link">Users To Approve</a>
                 </li>
             </ul>
         </div>
@@ -46,13 +46,19 @@
         
         <button *ngIf="userService.isLogedIn()" mat-button [matMenuTriggerFor]="menu" class="menu">{{user.firstName}} {{user.lastName}}</button>
          <mat-menu #menu="matMenu">
-             <span><a  mat-menu-item routerLink="/addAcc" *ngIf="userService.isEmployee() || userService.isOwner()"  routerLinkActive="active">Add accommodation unit</a></span>
-             <span><a  mat-menu-item  routerLink="/addPrice" *ngIf="userService.isEmployee() || userService.isOwner()"  routerLinkActive="active">Add Price</a></span>
              <span><a  mat-menu-item (click)="openInfo(user.id)" *ngIf="userService.isLogedIn()"  routerLinkActive="active">Edit profile</a></span>
-             <span><a  mat-menu-item  routerLink="/list-of-users" *ngIf="userService.isOwner()"  routerLinkActive="active">List of users</a></span>
-                <span><a  mat-menu-item  (click)="ChangePassword(user.id)" routerLinkActive="active">Change password</a></span>
+             <span><a  mat-menu-item  (click)="ChangePassword(user.id)" routerLinkActive="active">Change password</a></span>
              <button mat-menu-item routerLink="/" (click)="logout()">Logout</button>
-       <!--Izbrisati is empolyee gore-->
+        </mat-menu>
+        <button *ngIf="userService.isEmployee() || userService.isOwner()" mat-button [matMenuTriggerFor]="menu2" class="menu">
+            <mat-icon>hotel</mat-icon>
+        </button>
+        <mat-menu #menu2="matMenu">
+            <span><a  mat-menu-item routerLink="/addAcc" *ngIf="userService.isEmployee() || userService.isOwner()"  routerLinkActive="active">Add accommodation unit</a></span>
+            <span><a  mat-menu-item  routerLink="/addPrice" *ngIf="userService.isEmployee() || userService.isOwner()"  routerLinkActive="active">Add Price</a></span>
+            <span><a  mat-menu-item  routerLink="/list-of-users" *ngIf="userService.isOwner()"  routerLinkActive="active">List of users</a></span>
+            <span><a  mat-menu-item  routerLink="/minibars" *ngIf="userService.isEmployee() || userService.isOwner()"  routerLinkActive="active">List of minibars</a></span>
+            <span><a  mat-menu-item  routerLink="/addItems" *ngIf="userService.isEmployee() || userService.isOwner()"  routerLinkActive="active">Add minibar items</a></span>
         </mat-menu>
     </div>
 </nav>

@@ -1,0 +1,36 @@
+<section class="featured-section col-md-8" id="section">
+    <div>
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <h1>Minibars</h1>
+                <p id="p">This is a list of all the created minibars.</p>
+            </div>
+        </div>
+        <br>
+        <div class="row justify-content-center" id="minibars">
+            <div class="col-lg-5" *ngFor="let m of minibars">
+                <div [ngClass]="{
+                    'special-user-1': m.roleId === 1,
+                    'special-user-2': m.roleId === 2,
+                    'special-user-3': m.roleId === 3
+                  }">
+                <mat-card>
+                    <mat-card-content>
+                        <p>Minibar name: {{m.name}}</p>
+                        <p>List of items in the minibar:</p>
+                        <ul>
+                            <li *ngFor="let p of m.minibar_Items">
+                                <p>{{p.item.name}} {{p.amount}} units</p>
+                            </li>
+                            <p *ngIf="!m.minibar_Items|| m.minibar_Items.length === 0">Minibar is empty</p>
+                        </ul>
+                        
+                    </mat-card-content>
+                </mat-card>
+            </div>
+            <br>
+            </div>
+        </div>
+    </div>
+</section>
+ 

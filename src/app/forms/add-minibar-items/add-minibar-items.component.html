@@ -1,0 +1,39 @@
+<div class="container">
+    <form [formGroup]="form">
+      <div class="row">
+        <div class="text-center">
+          <br>
+          <h1 class="text-theme-primary">Add Minibar items</h1>
+          <p>Please fill in this form to add a minibar item</p>
+        </div>
+      </div> 
+          <div> 
+                <div class="form-group">
+                  <label for="name">Item name</label>
+                  <input formControlName="name" type="text" class="form-control" id="name" placeholder="Enter the item name">
+                  <div *ngIf="Name?.touched && Name?.invalid">
+                    <p *ngIf="Name?.errors?.['required']" class="errors">The item name is required</p>
+                  </div>
+                </div>
+                <br>
+                <div class="form-group">
+                  <label for="code">The item code</label>
+                  <input formControlName="code" type="text" class="form-control" id="code" placeholder="Enter the items code">
+                  <div *ngIf="Code?.touched && Code?.invalid">
+                    <p *ngIf="Code?.errors?.['required']" class="errors">The item code is required</p>
+                  </div>
+                </div>
+                  <br>
+                <div class="form-group">
+                  <label for="price">Price</label>
+                  <input formControlName="price" type="number" class="form-control" id="price" placeholder="Enter the price of the item">
+                  <div *ngIf="Price?.touched && Price?.invalid">
+                    <p *ngIf="Price?.errors?.['required']" class="errors">The price of the item is required</p>
+                  </div>
+                </div>
+                <br>
+               <span><button (click)="openConfirmationDialog()" [disabled]="!form.valid">Add Minbar Item</button></span>
+              </div>
+          </form> 
+        </div>
+          
