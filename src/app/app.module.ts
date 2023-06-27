@@ -35,6 +35,9 @@ import { MinibarsComponent } from './pages/minibars/minibars.component';
 import { AddMinibarItemsComponent } from './forms/add-minibar-items/add-minibar-items.component';
 import { AddToMinibarComponent } from './forms/add-to-minibar/add-to-minibar.component';
 import { MinibarDetailsComponent } from './pages/minibar-details/minibar-details.component';
+import { AddMinibarComponent } from './forms/add-minibar/add-minibar.component';
+import { AddServiceComponent } from './forms/add-service/add-service.component';
+import { ServicesComponent } from './pages/services/services.component';
 
 
 @NgModule({
@@ -62,6 +65,9 @@ import { MinibarDetailsComponent } from './pages/minibar-details/minibar-details
     AddMinibarItemsComponent,
     AddToMinibarComponent,
     MinibarDetailsComponent,
+    AddMinibarComponent,
+    AddServiceComponent,
+    ServicesComponent,
    
   ],
   imports: [

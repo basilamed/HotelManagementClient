@@ -13,12 +13,10 @@ export class ConfirmationComponent {
   ) {}
 
   onConfirm(): void {
-    // Implementirajte akciju koja se izvršava prilikom potvrde
     this.dialogRef.close(true);
   }
 
   onCancel(): void {
-    // Implementirajte akciju koja se izvršava prilikom odustajanja
     this.dialogRef.close(false);
   }
 

@@ -32,7 +32,7 @@ constructor(
       const result = await dialogRef.afterClosed().toPromise();
       if (result) {
         await this.addItem();
-        this.router.navigate([`/acc`]);
+        this.router.navigate([`/minibar`]);
       }
     } catch (error) {
       console.log(error);
@@ -56,12 +56,9 @@ constructor(
     try {
       const result = await this.ItemsService.addItem(Item).toPromise();
       console.log(result);
+      this.router.navigate(['/minibar']);
     } catch (error) {
       console.log(error);
     }
-
-    this.ItemsService.addItem(Item).subscribe(data => {
-      this.router.navigate(['/acc']);
-    })
   }
 } 

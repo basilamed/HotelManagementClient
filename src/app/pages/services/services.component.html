@@ -2,25 +2,25 @@
     <div class=" justify-content-center">
         <div class="row">
             <div class="col-md-12 text-center">
-                <h1>Minibars</h1>
-                <p id="p">This is a list of all the created minibars.</p>
+                <h1>Services</h1>
+                <p id="p">This is a list of all the services.</p>
             </div>
         </div>
         <br>
         <div class="col-12  justify-content-center" >
-            <div class="col-12"  *ngFor="let m of minibars" (click)="openInfo(m.id)">
-                <p *ngIf="minibars === []">There are no minibars</p>
-                <div id="minibars">
+            <div class="col-12"  *ngFor="let m of services">
+                <p *ngIf="services === ['']">There are no avalible services</p>
+                <div id="services">
                 <mat-card>
                     <mat-card-content>
-                        <p>Minibar name: {{m.name}}</p>
+                        <p>Service name: {{m.name}}</p>
+                        <p>Service price: {{m.price}}$</p>
                     </mat-card-content>
                 </mat-card>
             </div>
             <br>
             </div>
-            <button routerLink="/addMinibar" id="button">Create minibar</button>
+            <button routerLink="/addService" id="button">Create service</button>
         </div>
     </div>
 </section>
- 
