@@ -23,7 +23,6 @@ export class MinibarsComponent {
     })
   } 
  
-  
   openInfo(id: Number){
     this.router.navigate([`/minibar/${id}`]);
   }

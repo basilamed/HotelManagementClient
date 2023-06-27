@@ -2,8 +2,8 @@
     <form [formGroup]="form">
         <div class="text-center">
           <br> 
-          <h1 class="text-theme-primary">Add Accomodation Unit</h1>
-          <p>Please fill in this form to add an accommodation unit</p>
+          <h1 class="text-theme-primary">Add Items to minibar</h1>
+          <p>Please select the item you want to add to the minibar</p>
         </div>
 <div class="">
     <div class="card">
@@ -24,7 +24,7 @@
               <p *ngIf="Amount?.errors?.['max']" class="errors">Amount has to less than 7</p>
             </div>
           </div>
-        <button   (click)="addToMinibar()"> Add Accomodation Unit</button>
+        <button   (click)="addToMinibar()"> Add Item to minibar</button>
       </div>
     </div>
   </div>

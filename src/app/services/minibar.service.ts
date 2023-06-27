@@ -31,9 +31,16 @@ export class MinibarService {
     return this.http.post(this.url + '/Minibar/add-items' , item);
   }
 
+  addMinibar(minibar: AddMinibar) {
+    return this.http.post(this.url + '/Minibar/add', minibar);
+  }
+
 }
 export interface SaveMinibarItem {
   minibarId: number;
   itemId: number;
   amount: number;
+}
+export interface AddMinibar {
+  name: string;
 }
