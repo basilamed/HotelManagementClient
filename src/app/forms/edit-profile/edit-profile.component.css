@@ -41,3 +41,19 @@ form {
     border: 1px solid #ccc;
     box-sizing: border-box;
   }
+
+  .image-cont{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .round-image {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 20px;
+  }
+  

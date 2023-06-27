@@ -16,6 +16,8 @@ export class EditProfileComponent{
   id: string = '';
   imageData: string = "";
   error: boolean = false;
+  success: boolean = false;
+  image: string = "";
 
 
   form = new FormGroup({
@@ -32,6 +34,7 @@ export class EditProfileComponent{
      this.id = String(params.get('id') ?? '');
      this.UserService.getUserById(this.id).subscribe(data => {
        this.user = data;
+       this.image = this.user.image;
        console.log(this.user)
        this.form.patchValue({
          name: this.user.firstName,
@@ -110,14 +113,19 @@ export class EditProfileComponent{
         await this.UserService.updateUser(this.id, d).toPromise();
         this.Router.navigate([`/editUser/${this.id}`]);
       }
+      this.success = true;
     } catch (error) {
       console.log(error);
       this.error = true;
     }
   }
 
-  deleteUser(){ 
-    return this.UserService.deleteUser(this.id);
+  deleteUser(){
+    this.userService.deleteUser(this.id).subscribe(data => {
+      localStorage.removeItem('user');
+      localStorage.removeItem('token');
+      this.Router.navigate(['']);
+    })
   }
   
 

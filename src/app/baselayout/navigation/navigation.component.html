@@ -34,7 +34,7 @@
                     <a routerLink="/login" class="nav-link">Sign up/Login</a>
                 </li>
                 <li class="nav-item mr-5" *ngIf="userService.isOwner()">
-                    <a routerLink="/approve" class="nav-link">Users To Approve</a>
+                    <a routerLink="/approve" class="nav-link" *ngIf="userService.isOwner()">Users To Approve</a>
                 </li>
             </ul>
         </div>

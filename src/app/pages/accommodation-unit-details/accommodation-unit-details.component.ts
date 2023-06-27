@@ -68,6 +68,9 @@ export class AccommodationUnitDetailsComponent implements OnInit {
     this.Router.navigate(['addPrice/' + this.id]);
   }
  
+  requestReservation(){
+    
+  }
 
 
 }

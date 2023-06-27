@@ -18,7 +18,7 @@
                      <p>{{accommodationUnit.description}}</p>
                 </td>
             </tr>
-            <tr *ngIf="accommodationUnit.prices !== []">
+            <tr>
                 <td colspan="2">
                     <span>
                         <p *ngIf="accommodationUnit.prices !== []">Price per night: {{accommodationUnit.prices[0].pricePerNight}}$</p>
@@ -40,6 +40,7 @@
                         <button  (click)="Update()" *ngIf="userService.isEmployee() || userService.isOwner()">Update accommodation unit</button>
                         <button  (click)="addPrice()" *ngIf="userService.isEmployee() || userService.isOwner()">Add price</button>
                         <button  (click)="openConfirmationDialog()" *ngIf="userService.isEmployee() || userService.isOwner()">Delete accommodation unit</button>
+                        <button  (click)="requestReservation()" *ngIf="userService.isGuest()">Make a reservation</button>
                     </span>
                 </td>
             </tr>

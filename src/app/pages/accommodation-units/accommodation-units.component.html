@@ -18,6 +18,7 @@
                     <img [src]="u.image" id="img">
                     <br>
                     <mat-card-content>
+                        <p><b>Current price: {{u.prices[0].pricePerNight}} <mat-icon>euro_symbol</mat-icon></b></p>
                         <p>The room type: {{u.type}}</p>
                         <p>The floor that the room is on: {{u.floor}}</p>
                         <p>The maximum capacity of the room: {{u.capacity}}</p>
