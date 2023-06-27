@@ -6,6 +6,7 @@ import { OnInit } from '@angular/core';
 import { ConfirmationComponent } from 'src/app/confirmation/confirmation.component';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
+import { DateComponent } from 'src/app/dialog/date/date.component';
 
 @Component({
   selector: 'app-accommodation-unit-details',
@@ -69,7 +70,19 @@ export class AccommodationUnitDetailsComponent implements OnInit {
   }
  
   requestReservation(){
-    
+    const dialogRef = this.dialog.open(DateComponent, {
+      width: '250px',
+      data: {
+        id: this.id
+      }
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        // this.appService.addAppointment(result).subscribe((data: any) => {
+        //   this.loadAppointments(); // Osvežavanje termina nakon dodavanja
+        // });
+      }
+    });
   }
 
 

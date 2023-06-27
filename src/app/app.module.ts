@@ -38,6 +38,11 @@ import { MinibarDetailsComponent } from './pages/minibar-details/minibar-details
 import { AddMinibarComponent } from './forms/add-minibar/add-minibar.component';
 import { AddServiceComponent } from './forms/add-service/add-service.component';
 import { ServicesComponent } from './pages/services/services.component';
+import { DateComponent } from './dialog/date/date.component';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 
 
 @NgModule({
@@ -68,6 +73,7 @@ import { ServicesComponent } from './pages/services/services.component';
     AddMinibarComponent,
     AddServiceComponent,
     ServicesComponent,
+    DateComponent,
    
   ],
   imports: [
@@ -83,7 +89,11 @@ import { ServicesComponent } from './pages/services/services.component';
     MatMenuModule,
     MatDialogModule,
     MatTableModule,
-    MatButtonModule
+    MatButtonModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatFormFieldModule,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]
