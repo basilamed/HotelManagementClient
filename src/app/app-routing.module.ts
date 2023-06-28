@@ -23,6 +23,8 @@ import { MinibarDetailsComponent } from './pages/minibar-details/minibar-details
 import { AddMinibarComponent } from './forms/add-minibar/add-minibar.component';
 import { AddServiceComponent } from './forms/add-service/add-service.component';
 import { ServicesComponent } from './pages/services/services.component';
+import { AddCharacteristicComponent } from './forms/add-characteristic/add-characteristic.component';
+import { CharacteristicsComponent } from './pages/characteristics/characteristics.component';
 
 const routes: Routes = [
   { path: 'register', component: RegisterComponent},
@@ -45,7 +47,9 @@ const routes: Routes = [
   { path: 'minibar/:id', component: MinibarDetailsComponent, canActivate: [AuthGuard]},
   { path: 'addMinibar', component: AddMinibarComponent, canActivate: [AuthGuard]},
   { path: 'addService', component: AddServiceComponent, canActivate: [AuthGuard]},
-  { path: 'services', component: ServicesComponent, canActivate: [AuthGuard]}
+  { path: 'services', component: ServicesComponent, canActivate: [AuthGuard]},
+  { path: 'addCharacteristic', component: AddCharacteristicComponent, canActivate: [AuthGuard]},
+  { path: 'characteristics', component: CharacteristicsComponent, canActivate: [AuthGuard]}
 ];
 
 @NgModule({

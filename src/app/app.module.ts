@@ -43,6 +43,11 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { AddCharacteristicComponent } from './forms/add-characteristic/add-characteristic.component';
+import { CharacteristicsComponent } from './pages/characteristics/characteristics.component';
+import { AddReservationComponent } from './forms/add-reservation/add-reservation.component';
+import { trigger, state, style, animate, transition } from '@angular/animations';
+
 
 
 @NgModule({
@@ -74,6 +79,9 @@ import { MatInputModule } from '@angular/material/input';
     AddServiceComponent,
     ServicesComponent,
     DateComponent,
+    AddCharacteristicComponent,
+    CharacteristicsComponent,
+    AddReservationComponent,
    
   ],
   imports: [

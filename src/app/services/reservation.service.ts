@@ -13,4 +13,26 @@ export class ReservationService {
   getDateRange(id: number){
     return this.http.get(`${this.url}/Reservation/dates/${id}`);
   }
+
+  requestReservation(dto: AddReservation){
+    return this.http.post(`${this.url}/Reservation/request-reservation`, dto);
+  }
+
+  acceptReservation(id: number){
+    return this.http.get(`${this.url}/Reservation/accept/${id}`);
+  }
+
+  deleteReservation(id: number){
+    return this.http.delete(`${this.url}/Reservation/delete/${id}`);
+  }
+
+  
+}
+export interface AddReservation {
+  checkIn: Date;
+  checkOut: Date;
+  numberOfPeople: number;
+  accommodationUnitId: number;
+  userId: string;
+  serviceIds: number[];
 }
