@@ -9,12 +9,17 @@
               Accommodation Unit
             </mat-panel-description>
           </mat-expansion-panel-header>
-          <p><b>Price for {{date1}} - {{date2}}: {{price.pricePerNight}} $</b></p>
+          <p><b>Price for {{date1}} - {{date2}}: {{price.pricePerNight * 5}} $</b></p>
             <p>The room type: {{unit.type}}</p>
             <p>The floor that the room is on: {{unit.floor}}</p>
             <p>The maximum capacity of the room: {{unit.capacity}}</p>
             <p>Room characteristics: </p>
-            <p *ngFor="let c of unit.aUnit_Characteristics">- {{c.characteristics.name}}</p>
+            <div class="list-container">
+              <p *ngFor="let c of unit.aUnit_Characteristics">{{c.characteristics.name}} | </p>
+              <p>Internet access | </p>
+              <p>Free toiletries | </p>
+              <p>TV</p>
+            </div>
         </mat-expansion-panel>
         <mat-expansion-panel (opened)="panelOpenState = true"
                              (closed)="panelOpenState = false">
@@ -36,7 +41,7 @@
                     Number is required
                 </p>
                 <p class="error" *ngIf="Number?.errors?.['max']">
-                    Number can not be larger than {{unit.numberOfPeople}}
+                    Number can not be larger than {{unit.capacity}}
                 </p>
             </div>
           </form>
@@ -45,14 +50,26 @@
                              (closed)="panelOpenState = false">
           <mat-expansion-panel-header>
             <mat-panel-title>
-              Self aware panel
+              Special services
             </mat-panel-title>
             <mat-panel-description>
-              Currently I am {{panelOpenState ? 'open' : 'closed'}}
+              Services
             </mat-panel-description>
           </mat-expansion-panel-header>
-          <p>I'm visible because I am open</p>
+          <br>
+          <form [formGroup]="formC">
+          <div class="form-group">
+            <label>Select the special Services you wish to add to your reservation:</label>
+            <div formArrayName="servicesId">
+              <div *ngFor="let c of services let i = index">
+                <label>
+                  <input type="checkbox" [formControlName]="i"> {{ c.name }}
+                </label>
+              </div>
+            </div>
+          </div>
+        </form>
         </mat-expansion-panel>
       </mat-accordion>
-      
+      <button (click)="requestReservation()" [disabled]="!form.valid && !formC.valid">Request reservation</button>
 </section>

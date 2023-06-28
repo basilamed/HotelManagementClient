@@ -3,8 +3,9 @@ import { ActivatedRoute } from '@angular/router';
 import { PriceService } from 'src/app/services/price.service';
 import { DatePipe } from '@angular/common';
 import { AccommodationUnitsService } from 'src/app/services/accommodation-units.service';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
-
+import { FormControl, FormGroup, Validators, FormArray, FormBuilder } from '@angular/forms';
+import { ServicesService } from 'src/app/services/services.service';
+import { ReservationService, AddReservation } from 'src/app/services/reservation.service';
 @Component({
   selector: 'app-request-reservation',
   templateUrl: './request-reservation.component.html',
@@ -13,7 +14,12 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class RequestReservationComponent implements OnInit {
 
-  constructor(private priceService: PriceService, private route: ActivatedRoute, private datepipe: DatePipe, private unitService: AccommodationUnitsService) {}
+  constructor(private priceService: PriceService,
+     private route: ActivatedRoute, private datepipe: DatePipe, 
+     private unitService: AccommodationUnitsService,
+     private FormBuilder : FormBuilder,
+     private ServicesService: ServicesService,
+     private ReservationService: ReservationService) {}
 
   id: number = 0;
   checkIn!: Date;
@@ -23,6 +29,8 @@ export class RequestReservationComponent implements OnInit {
   date1: string = '';
   date2: string = '';
   user: any = [];
+  services: any = [];
+  formC!: FormGroup;
   
   form = new FormGroup({
     numberOfPeople: new FormControl('', Validators.required)
@@ -55,9 +63,64 @@ export class RequestReservationComponent implements OnInit {
       });
     });
 
+    this.formC = this.FormBuilder.group({
+      servicesId: this.FormBuilder.array([])
+    });
+
     const userJSON = localStorage.getItem('user');
     if (userJSON) {
       this.user = JSON.parse(userJSON);
     }
+
+    this.ServicesService.getServices().subscribe((data: any) => {
+      this.services = data;
+  
+      const servicesFormArray = this.formC.get('servicesId') as FormArray;
+  
+      this.services.forEach(() => {
+        const control = new FormControl(false);
+        servicesFormArray.push(control);
+      });
+  
+      console.log(this.services);
+    },
+    err => {
+      console.log(err);
+    });
   }
+
+  get servicesIdArray() {
+    return this.formC.get('servicesId');
+  }
+
+  requestReservation(){
+    
+    const selectedServices = this.formC.get('servicesId') as FormArray;
+    const selectedValues: number[] = [];
+  
+    selectedServices.controls.forEach((control, i) => {
+      if (control.value) {
+        selectedValues.push(this.services[i].id);
+      }
+    });
+
+    console.log(selectedValues);
+
+
+    const Reservation : AddReservation = {
+      checkIn: new Date(this.date1),
+      checkOut: new Date(this.date2),
+      numberOfPeople: +(this.form.value.numberOfPeople ?? 0),
+      accommodationUnitId: this.id,
+      userId: this.user.id,
+      serviceIds: selectedValues
+    }
+
+    console.log(Reservation);
+    
+    this.ReservationService.requestReservation(Reservation).subscribe(data => {
+      console.log(data);
+    })
+  }
+  
 }

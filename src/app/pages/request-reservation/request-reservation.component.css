@@ -11,7 +11,40 @@ input[type=text], input[type=number] {
     border: 1px solid #ccc;
     box-sizing: border-box;
   }
-
   .error{
     color: red;
   }
+  button{
+    margin: 20px auto;
+    display: block;
+    width: 30%;
+    max-width: 300px;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #c09d63;
+    color: #fff;
+    font-weight: 500;
+    cursor: pointer;
+}
+.list-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: left;
+  list-style-type: none;
+  padding: 0;
+  width: fit-content;
+  padding: 15px;
+}
+
+.list-container p{
+  margin: 0 5px;
+  color: #c09d63
+
+}
+
+.list-container p:hover{
+  color: #0f283c;
+  cursor: pointer;
+}

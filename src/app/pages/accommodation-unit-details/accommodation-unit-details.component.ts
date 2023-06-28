@@ -71,7 +71,8 @@ export class AccommodationUnitDetailsComponent implements OnInit {
  
   requestReservation(){
     const dialogRef = this.dialog.open(DateComponent, {
-      width: '250px',
+      panelClass: 'my-class',
+      width: '300px',
       data: {
         id: this.id
       }
