@@ -19,7 +19,7 @@ export class ReservationService {
   }
 
   acceptReservation(id: number){
-    return this.http.get(`${this.url}/Reservation/accept/${id}`);
+    return this.http.post(`${this.url}/Reservation/accept/${id}`, null);
   }
 
   deleteReservation(id: number){

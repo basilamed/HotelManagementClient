@@ -86,13 +86,19 @@ export class DateComponent implements OnInit {
   
     // Convert the selected date strings to Date objects
     const formattedStartDate: Date = new Date(startDate);
-    const formattedEndDate: Date = new Date(endDate);
+formattedStartDate.setDate(formattedStartDate.getDate() + 1);
+
+const formattedEndDate: Date = new Date(endDate);
+formattedEndDate.setDate(formattedEndDate.getDate() + 1);
   
     // Format the dates as "yyyy-mm-dd"
     const formattedStartDateStr: string = formattedStartDate.toISOString().split('T')[0];
     const formattedEndDateStr: string = formattedEndDate.toISOString().split('T')[0];
   
     this.router.navigate([`request/${this.id}/${formattedStartDateStr}/${formattedEndDateStr}`]);
+
+    console.log(formattedStartDateStr);
+    console.log(formattedEndDateStr);
   
     // Rest of your code...
     this.dialogRef.close();

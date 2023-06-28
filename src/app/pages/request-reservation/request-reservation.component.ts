@@ -48,6 +48,8 @@ export class RequestReservationComponent implements OnInit {
       console.log(this.id);
       this.date1 = data.get('checkIn') ?? '';
       this.date2 = data.get('checkOut') ?? '';
+      console.log(this.date1);
+      console.log(this.date2);
       const checkInValue: string = data.get('checkIn') ?? '';
       const formattedCheckIn: Date = new Date(checkInValue);
       const formattedDate: string = this.datepipe.transform(formattedCheckIn, 'yyyy-MM-dd') || '';
@@ -59,7 +61,7 @@ export class RequestReservationComponent implements OnInit {
       });
       this.unitService.getAccommodationUnitById(this.id).subscribe(data => {
         this.unit = data as any;
-        console.log(this.unit.numberOfPeople);
+        console.log(this.unit.capacity);
         this.form.get('numberOfPeople')?.setValidators([Validators.required, Validators.max(this.price.accommodationUnit.capacity)]);
         this.form.get('numberOfPeople')?.updateValueAndValidity();
       });
