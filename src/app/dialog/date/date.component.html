@@ -1,20 +1,25 @@
 <div class="dialog-container">
     <form [formGroup]="form">
       <label>Choose check in date</label>
-      <mat-form-field>
-        <mat-label>Choose a date</mat-label>
-        <input matInput [matDatepicker]="checkInPicker" [matDatepickerFilter]="myHolidayFilter" formControlName="checkIn">
-        <mat-datepicker-toggle matIconSuffix [for]="checkInPicker"></mat-datepicker-toggle>
-        <mat-datepicker #checkInPicker></mat-datepicker>
+      <mat-form-field appearance="fill">
+        <mat-label>Enter a date range</mat-label>
+        <mat-date-range-input [rangePicker]="picker"  [dateFilter]="rangeFilter">
+          <input matStartDate placeholder="Start date" formControlName="checkIn">
+          <input matEndDate placeholder="End date" formControlName="checkOut">
+        </mat-date-range-input>
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-date-range-picker #picker></mat-date-range-picker>
       </mat-form-field>
+      
+      
       <br>
-      <label>Choose check out date</label>
+      <!-- <label>Choose check out date</label>
       <mat-form-field>
         <mat-label>Choose a date</mat-label>
         <input matInput [matDatepicker]="checkOutPicker" [matDatepickerFilter]="myHolidayFilter" formControlName="checkOut">
         <mat-datepicker-toggle matIconSuffix [for]="checkOutPicker"></mat-datepicker-toggle>
         <mat-datepicker #checkOutPicker></mat-datepicker>
-      </mat-form-field>
+      </mat-form-field> -->
     </form>
     <button mat-button (click)="onCancel()">Cancel</button>
     <button mat-button color="primary" type="submit" [disabled]="!form.valid" (click)="onConfirm()">Confirm</button>

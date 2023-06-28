@@ -43,6 +43,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { RequestReservationComponent } from './pages/request-reservation/request-reservation.component';
 
 
 @NgModule({
@@ -74,6 +75,7 @@ import { MatInputModule } from '@angular/material/input';
     AddServiceComponent,
     ServicesComponent,
     DateComponent,
+    RequestReservationComponent,
    
   ],
   imports: [
