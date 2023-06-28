@@ -85,6 +85,7 @@ export class UserService {
   getAllUsers(){  
     return this.http.get(`${this.url}/User/all-approved`);
   }
+  
 
   deleteUser(id: string){
     return this.http.delete(`${this.url}/User/delete/${id}`);

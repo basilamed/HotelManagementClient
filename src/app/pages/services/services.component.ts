@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 })
 export class ServicesComponent {
 
-  id: number = 0;
+  id: number = 0; 
   services: any [] = [];
 
   constructor(private ServicesService: ServicesService,
