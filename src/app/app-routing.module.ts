@@ -50,7 +50,7 @@ const routes: Routes = [
   { path: 'addService', component: AddServiceComponent, canActivate: [AuthGuard]},
   { path: 'services', component: ServicesComponent, canActivate: [AuthGuard]},
   { path: 'addCharacteristic', component: AddCharacteristicComponent, canActivate: [AuthGuard]},
-  { path: 'characteristics', component: CharacteristicsComponent, canActivate: [AuthGuard]}
+  { path: 'characteristics', component: CharacteristicsComponent, canActivate: [AuthGuard]},
   { path: 'services', component: ServicesComponent, canActivate: [RoleGuard], data: {allowedRole: 1}},
   { path: 'request/:accId/:checkIn/:checkOut', component: RequestReservationComponent, canActivate: [RoleGuard], data: {allowedRole: 3}}
 ];
