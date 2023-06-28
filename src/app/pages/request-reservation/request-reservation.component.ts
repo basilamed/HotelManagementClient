@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Route } from '@angular/router';
+import { Router } from '@angular/router';
 import { PriceService } from 'src/app/services/price.service';
 import { DatePipe } from '@angular/common';
 import { AccommodationUnitsService } from 'src/app/services/accommodation-units.service';
@@ -19,7 +20,8 @@ export class RequestReservationComponent implements OnInit {
      private unitService: AccommodationUnitsService,
      private FormBuilder : FormBuilder,
      private ServicesService: ServicesService,
-     private ReservationService: ReservationService) {}
+     private ReservationService: ReservationService,
+     private Route: Router) {}
 
   id: number = 0;
   checkIn!: Date;
@@ -120,6 +122,7 @@ export class RequestReservationComponent implements OnInit {
     
     this.ReservationService.requestReservation(Reservation).subscribe(data => {
       console.log(data);
+      this.Route.navigate(['/acc']);
     })
   }
   

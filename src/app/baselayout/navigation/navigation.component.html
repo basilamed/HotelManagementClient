@@ -30,12 +30,16 @@
                 <!-- <li class="nav-item mr-5" *ngIf="userService.isLogedIn()">
                     <a routerLink="" class="nav-link">Your resevations</a>
                 </li> -->
+                <li class="nav-item mr-5" *ngIf=" userService.isEmployee()">
+                    <a routerLink="/approveReservation" class="nav-link" *ngIf="userService.isEmployee()">Reservations To Approve</a>
+                </li>
                 <li class="nav-item mr-5" *ngIf="!userService.isLogedIn()">
                     <a routerLink="/login" class="nav-link">Sign up/Login</a>
                 </li>
                 <li class="nav-item mr-5" *ngIf="userService.isOwner()">
                     <a routerLink="/approve" class="nav-link" *ngIf="userService.isOwner()">Users To Approve</a>
                 </li>
+                
             </ul>
         </div>
         

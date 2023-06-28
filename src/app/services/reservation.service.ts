@@ -26,6 +26,14 @@ export class ReservationService {
     return this.http.delete(`${this.url}/Reservation/delete/${id}`);
   }
 
+  getApprovedReservations(){
+    return this.http.get(`${this.url}/Reservation/approved`);
+  }
+
+  getUnapprovedReservations(){
+    return this.http.get(`${this.url}/Reservation/not-approved`);
+  }
+
   
 }
 export interface AddReservation {

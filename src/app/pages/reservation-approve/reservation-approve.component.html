@@ -1,0 +1,52 @@
+<section>
+    <div class="col-md-12 text-center">
+        <br>
+        <h1 class="text-theme-primary">Reservations</h1>
+      </div>
+      <br> 
+      <div *ngIf="reservations.length === 0">
+        <p class="row justify-content-center">No reservations to approve</p>
+      </div>
+      <div  *ngIf="users.length != 0" class="tabela-container">
+          <table mat-table [dataSource]="reservations">
+              <ng-container matColumnDef="ime_korisnika">
+                  <th mat-header-cell *matHeaderCellDef>Ime korisnika</th>
+                  <td mat-cell *matCellDef="let user">{{ getUserName(user.userId) }} {{ getUserSurname(user.userId)}}</td>
+      </ng-container>
+    <ng-container matColumnDef="jedinica">
+        <th mat-header-cell *matHeaderCellDef>Jedinica</th>
+        <td mat-cell *matCellDef="let reservation">{{ getUnitName(reservation.accommodationUnitId) }}</td>
+    </ng-container>
+    <ng-container matColumnDef="datum_od">
+        <th mat-header-cell *matHeaderCellDef>Datum od</th>
+        <td mat-cell *matCellDef="let reservations">{{ reservations.checkIn | date:'shortDate'}}</td>
+    </ng-container>
+    <ng-container matColumnDef="datum_do">
+        <th mat-header-cell *matHeaderCellDef>Datum do</th>
+        <td mat-cell *matCellDef="let reservations">{{ reservations.checkOut | date:'shortDate'}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="dugme1">
+        <th mat-header-cell *matHeaderCellDef>Approve</th>
+        <td mat-cell *matCellDef="let reservation"> <div class="example-button-container">
+            <button (click)="update(reservation.id)" mat-mini-fab color="primary" aria-label="Example icon button with a filter list icon">
+              <mat-icon>check</mat-icon>
+            </button>
+          </div></td>
+    </ng-container>
+
+    <ng-container matColumnDef="dugme2">
+        <th mat-header-cell *matHeaderCellDef>Delete</th>
+        <td mat-cell *matCellDef="let reservation"> <div class="example-button-container">
+            <button (click)="delete(reservation.id)" mat-mini-fab color="warn" aria-label="Example icon button with a filter list icon">
+              <mat-icon>delete</mat-icon>
+            </button>
+          </div></td>
+    </ng-container>
+
+   
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+</div>
+</section>
