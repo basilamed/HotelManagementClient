@@ -15,6 +15,10 @@ export class PriceService {
   addPrice(Price : SavePrice){
     return this.http.post(this.url + `/Price/add-price`, Price);
   }
+
+  getPriceForUnit(id: number, checkIn: string){
+    return this.http.get(this.url + `/Price/get-price/${id}?checkIn=${checkIn}`);
+  }
 }
 export interface SavePrice {
   pricePerPerson: number;
