@@ -1,0 +1,10 @@
+#section{
+    margin: auto;
+}
+h1{
+    text-align: center;
+    margin-top: 40px;
+}
+#reservations{
+    border: 2px solid #c09d63;
+}

@@ -27,6 +27,7 @@ import { AddCharacteristicComponent } from './forms/add-characteristic/add-chara
 import { CharacteristicsComponent } from './pages/characteristics/characteristics.component';
 import { RequestReservationComponent } from './pages/request-reservation/request-reservation.component';
 import { ReservationApproveComponent } from './pages/reservation-approve/reservation-approve.component';
+import { ApprovedReservationsComponent } from './pages/approved-reservations/approved-reservations.component';
 
 const routes: Routes = [
   { path: 'register', component: RegisterComponent},
@@ -54,7 +55,8 @@ const routes: Routes = [
   { path: 'characteristics', component: CharacteristicsComponent, canActivate: [AuthGuard]},
   { path: 'services', component: ServicesComponent, canActivate: [RoleGuard], data: {allowedRole: 1}},
   { path: 'request/:accId/:checkIn/:checkOut', component: RequestReservationComponent, canActivate: [RoleGuard], data: {allowedRole: 3}},
-  { path: 'approveReservation', component: ReservationApproveComponent, canActivate: [RoleGuard], data: {allowedRole: 2}}
+  { path: 'approveReservation', component: ReservationApproveComponent, canActivate: [RoleGuard], data: {allowedRole: 2}},
+  { path: 'approvedReservations', component: ApprovedReservationsComponent, canActivate: [RoleGuard], data: {allowedRole: 2}}
 ];
 
 @NgModule({

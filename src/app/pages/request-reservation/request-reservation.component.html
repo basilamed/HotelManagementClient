@@ -9,7 +9,10 @@
               Accommodation Unit
             </mat-panel-description>
           </mat-expansion-panel-header>
-          <p><b>Price for {{date1}} - {{date2}}: {{price.pricePerNight * 5}} $</b></p>
+          <p><b>Price for {{date1}} - {{date2}}: <p *ngIf="price.pricePerNight == null ">Current price not avalible</p>
+            <p *ngIf="price.pricePerNight > 0 ">{{price.pricePerNight * numberOfDays}} $</p>
+          
+          </b></p>
             <p>The room type: {{unit.type}}</p>
             <p>The floor that the room is on: {{unit.floor}}</p>
             <p>The maximum capacity of the room: {{unit.capacity}}</p>

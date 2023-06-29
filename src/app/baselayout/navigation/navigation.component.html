@@ -64,6 +64,7 @@
             <span><a  mat-menu-item  routerLink="/addItems" *ngIf="userService.isEmployee() || userService.isOwner()"  routerLinkActive="active">Add minibar items</a></span>
             <span><a  mat-menu-item  routerLink="/services" *ngIf="userService.isEmployee() || userService.isOwner()"  routerLinkActive="active">List of services</a></span>
             <span><a  mat-menu-item  routerLink="/characteristics" *ngIf="userService.isEmployee() || userService.isOwner()"  routerLinkActive="active">List of characteristics</a></span>
+            <span><a  mat-menu-item  routerLink="/approvedReservations" *ngIf="userService.isEmployee() || userService.isOwner()"  routerLinkActive="active">List of reservations</a></span>
         
         </mat-menu>
     </div>

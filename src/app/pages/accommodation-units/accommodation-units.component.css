@@ -19,8 +19,7 @@
   }
   #unit{
     margin: 20px;
-    box-shadow: #645206 2px 2px 6px;
-    border: #c3c3c3 2px solid;
+    border: 2px solid #c09d63;
   }
 
   mat-icon{

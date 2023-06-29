@@ -4,7 +4,7 @@
         <div class="row">
             <div class="col-md-12 text-center">
                 <h2>Accommodation units</h2>
-                <p>Our asortment of luxurious rooms :) </p> 
+                <p>Our asortment of luxurious rooms</p> 
             </div>
         </div>
         <br>
@@ -18,8 +18,8 @@
                     <img [src]="u.image" id="img">
                     <br>
                     <mat-card-content>
-                        <p *ngIf="u.prices.length !== 0"><b>Current price: {{u.prices[0].pricePerNight}} <mat-icon>euro_symbol</mat-icon></b></p>
-                        <p>The room type: {{u.type}}</p>
+                        <p *ngIf="u.prices.length !== 0"><b>Current price: {{u.prices[0].pricePerNight}}€</b></p>
+                        <p>The room type: {{u.type}} <mat-icon>bed</mat-icon></p>
                         <p>The floor that the room is on: {{u.floor}}</p>
                         <p>The maximum capacity of the room: {{u.capacity}}</p>
                     </mat-card-content>

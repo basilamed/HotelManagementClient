@@ -33,6 +33,7 @@ export class RequestReservationComponent implements OnInit {
   user: any = [];
   services: any = [];
   formC!: FormGroup;
+  numberOfDays: number = 1;
   
   form = new FormGroup({
     numberOfPeople: new FormControl('', Validators.required)
@@ -50,6 +51,11 @@ export class RequestReservationComponent implements OnInit {
       this.date2 = data.get('checkOut') ?? '';
       console.log(this.date1);
       console.log(this.date2);
+      const datum1 = new Date(this.date1);
+      const datum2 = new Date(this.date2);
+      const timeDifference = Math.abs(datum2.getTime() - datum1.getTime());
+      this.numberOfDays = Math.ceil(timeDifference / (1000 * 3600 * 24));
+      console.log(this.numberOfDays);
       const checkInValue: string = data.get('checkIn') ?? '';
       const formattedCheckIn: Date = new Date(checkInValue);
       const formattedDate: string = this.datepipe.transform(formattedCheckIn, 'yyyy-MM-dd') || '';
@@ -66,6 +72,8 @@ export class RequestReservationComponent implements OnInit {
         this.form.get('numberOfPeople')?.updateValueAndValidity();
       });
     });
+
+    
 
     this.formC = this.FormBuilder.group({
       servicesId: this.FormBuilder.array([])

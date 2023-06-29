@@ -49,6 +49,7 @@ import { CharacteristicsComponent } from './pages/characteristics/characteristic
 import { AddReservationComponent } from './forms/add-reservation/add-reservation.component';
 import {MatExpansionModule} from '@angular/material/expansion';
 import { ReservationApproveComponent } from './pages/reservation-approve/reservation-approve.component';
+import { ApprovedReservationsComponent } from './pages/approved-reservations/approved-reservations.component';
 
 @NgModule({
   declarations: [
@@ -84,6 +85,7 @@ import { ReservationApproveComponent } from './pages/reservation-approve/reserva
     AddReservationComponent,
     RequestReservationComponent,
     ReservationApproveComponent,
+    ApprovedReservationsComponent,
    
   ],
   imports: [
