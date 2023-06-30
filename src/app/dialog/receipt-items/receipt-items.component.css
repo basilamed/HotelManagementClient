@@ -47,3 +47,7 @@ form {
   .card{
     border: none;
   }
+
+  .errors{
+    color: red;
+  }

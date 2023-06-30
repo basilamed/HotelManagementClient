@@ -52,6 +52,7 @@ import { ReservationApproveComponent } from './pages/reservation-approve/reserva
 import { ApprovedReservationsComponent } from './pages/approved-reservations/approved-reservations.component';
 import { CreateReceiptComponent } from './pages/create-receipt/create-receipt.component';
 import { ReceiptItemsComponent } from './dialog/receipt-items/receipt-items.component';
+import { ReceiptComponent } from './pages/receipt/receipt.component';
 
 @NgModule({
   declarations: [
@@ -90,6 +91,7 @@ import { ReceiptItemsComponent } from './dialog/receipt-items/receipt-items.comp
     ApprovedReservationsComponent,
     CreateReceiptComponent,
     ReceiptItemsComponent,
+    ReceiptComponent,
    
   ],
   imports: [

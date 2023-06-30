@@ -13,10 +13,22 @@ export class ReceiptService {
   createReceipt(save: SaveReceipt){
     return this.http.post(`${this.url}/Receipt/create-receipt`, save);
   }
+
+  addResItems(dto: SaveResItem){
+    return this.http.post(`${this.url}/Receipt/add-items-reservations`, dto);
+  }
+
+  getReceiptByResId(id: number){
+    return this.http.get(`${this.url}/Receipt/get-by-resId/${id}`);
+  }
 }
 
 export interface SaveReceipt {
   reservationId: number;
-  items: number[];
-  itemsAmount: number[];
+}
+
+export interface SaveResItem {
+  itemId: number;
+  reservationId: number;
+  amount: number;
 }

@@ -1,25 +1,20 @@
 <div class="form">
-    <div class="container">
-      <div class="text-center">
-        <h2 class="text-theme-primary">Reservaton information</h2>
+  <div class="container">
+    <div class="text-center">
+      <h2 class="text-theme-primary">Reservaton information</h2>
     </div>
     <div>
-        <div class="informacje">
-          <p>Guest full name: {{reservationDetails.user.firstName}} {{reservationDetails.user.lastName}}</p>
-          <p>Accomodation unit : {{reservationDetails.accommodationUnit.name}} </p>
-          <p>Check in date: {{reservationDetails.checkIn | date: 'dd/MM/yyyy'}}</p>
-          <p>Check out date: {{reservationDetails.checkOut | date: 'dd/MM/yyyy'}}</p>
-          <p>Number of guests: {{reservationDetails.numberOfPeople}}</p>
+      <div class="informacje">
+        <p>Guest full name: {{reservationDetails?.user?.firstName}} {{reservationDetails?.user?.lastName}}</p>
+        <p>Accomodation unit : {{reservationDetails?.accommodationUnit?.name}} </p>
+        <p>Check in date: {{reservationDetails?.checkIn | date: 'dd/MM/yyyy'}}</p>
+        <p>Check out date: {{reservationDetails?.checkOut | date: 'dd/MM/yyyy'}}</p>
+        <p>Number of guests: {{reservationDetails?.numberOfPeople}}</p>
+      </div>
 
-        </div>
-
-        <button (click)="openDialog()">Used minibar items</button>
+      <button (click)="openDialog()">Used minibar items</button>
     </div>
-      <button type="submit">Create receipt</button>
-      <div class="container" >
-    </div>
+    <button type="submit" (click)="create()">Create receipt</button>
+    <div class="container"></div>
+  </div>
 </div>
-</div>    
-
-
- 

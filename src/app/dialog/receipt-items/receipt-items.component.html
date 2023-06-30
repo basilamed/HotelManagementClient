@@ -21,10 +21,10 @@
           <div *ngIf="Amount?.touched && Amount?.invalid">
             <p *ngIf="Amount?.errors?.['required']" class="errors">Amount is required</p>
             <p *ngIf="Amount?.errors?.['min']" class="errors">Amount has to be greater than 1</p>
-            <p *ngIf="Amount?.errors?.['max']" class="errors">Amount has to less than 7</p>
+            <p *ngIf="Amount?.errors?.['max']" class="errors">Amount has to less than {{selectedAmount}}</p>
           </div>
         </div>
-      <button > Add Item to minibar</button>
+      <button (click)="addItem()"> Add Item to minibar</button>
     </div>
   </div>
 </div>

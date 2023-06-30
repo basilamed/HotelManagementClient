@@ -1,0 +1,26 @@
+<div class="form">
+    <div class="container">
+      <div class="text-center">
+        <h2 class="text-theme-primary">Receipt</h2>
+      </div>
+      <div>
+        <div class="informacje">
+          <p>Guest full name: {{ receipt?.reservation?.user?.firstName }} {{ receipt?.reservation?.user?.lastName }}</p>
+          <p>Accomodation unit : {{ receipt?.reservation?.accommodationUnit?.name }}</p>
+          <p>Check in date: {{ receipt?.reservation?.checkIn | date: 'dd/MM/yyyy' }}</p>
+          <p>Check out date: {{ receipt?.reservation?.checkOut | date: 'dd/MM/yyyy' }}</p>
+          <p>Number of guests: {{ receipt?.reservation?.numberOfPeople }}</p>
+          <br>
+          <p><b>Services used:</b></p>
+          <p *ngFor="let sr of receipt?.reservation?.services_Reservations">{{ sr?.service?.name }} - {{sr?.service?.price}}$</p>
+          <br>
+          <p><b>Minibar used items:</b></p>
+          <p *ngFor="let mr of receipt?.reservation?.minibar_Reservations">{{ mr?.item?.name }} - {{ mr?.item?.price }}$ x {{ mr?.amount }}</p>
+          <br>
+          <p><b>Total price: {{ receipt?.totalPrice }}$</b></p>
+          <hr>
+        </div>
+      </div>
+    </div>
+  </div>
+  
