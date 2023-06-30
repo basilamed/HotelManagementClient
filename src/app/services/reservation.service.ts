@@ -27,7 +27,7 @@ export class ReservationService {
   }
 
   getApprovedReservations(){
-    return this.http.get(`${this.url}/Reservation/approved`);
+    return this.http.get(`${this.url}/Reservation/without-receipts`);
   }
 
   getUnapprovedReservations(){

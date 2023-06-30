@@ -33,4 +33,8 @@ export class ApprovedReservationsComponent {
     return unit ? unit.name : 'N/A'; // Return the unit name or 'N/A' if not found
   }
 
+  create(id:number){
+    this.router.navigate([`create-receipt/${id}`])
+  }
+
 }

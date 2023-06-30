@@ -50,6 +50,8 @@ import { AddReservationComponent } from './forms/add-reservation/add-reservation
 import {MatExpansionModule} from '@angular/material/expansion';
 import { ReservationApproveComponent } from './pages/reservation-approve/reservation-approve.component';
 import { ApprovedReservationsComponent } from './pages/approved-reservations/approved-reservations.component';
+import { CreateReceiptComponent } from './pages/create-receipt/create-receipt.component';
+import { ReceiptItemsComponent } from './dialog/receipt-items/receipt-items.component';
 
 @NgModule({
   declarations: [
@@ -86,6 +88,8 @@ import { ApprovedReservationsComponent } from './pages/approved-reservations/app
     RequestReservationComponent,
     ReservationApproveComponent,
     ApprovedReservationsComponent,
+    CreateReceiptComponent,
+    ReceiptItemsComponent,
    
   ],
   imports: [

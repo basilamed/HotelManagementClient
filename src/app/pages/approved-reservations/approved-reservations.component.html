@@ -15,6 +15,7 @@
                         <p>Check in date: {{u.checkIn | date:'shortDate'}}</p>
                         <p>Check out date: {{u.checkOut | date:'shortDate'}}</p>
                         <p>Unit name: {{getUnitName(u.accommodationUnitId)}}</p>
+                        <button  (click)="create(u.id)">Create a receipt</button>
                     </mat-card-content>
                 </mat-card>
             </div>

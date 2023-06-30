@@ -8,3 +8,17 @@ h1{
 #reservations{
     border: 2px solid #c09d63;
 }
+
+button{
+    margin: 0 auto;
+    display: block;
+    width: 60%;
+    max-width: 300px;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #c09d63;
+    color: #fff;
+    font-weight: 500;
+    cursor: pointer;
+}

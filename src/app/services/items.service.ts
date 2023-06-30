@@ -23,6 +23,10 @@ export class ItemsService {
     return this.http.post(this.url + `/Minibar/add-items`, ItemMinibar);
   }
 
+  getReservationItems(id: number){
+    return this.http.get(this.url + `/Reservation/get-items-reservation/${id}`);
+  }
+
 }
 export interface SaveItem {
   name: string;
