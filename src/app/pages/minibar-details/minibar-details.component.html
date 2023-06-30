@@ -13,7 +13,7 @@
                     </li>
                     <p *ngIf="!minibarDetails.minibar_Items|| minibarDetails.minibar_Items.length === 0">Minibar is empty</p>
                 </ul> <span>
-                    <button (click)="addItem()">Add items to minibar</button>
+                    <button (click)="addItem()" [disabled]="inventar >= 10">Add items to minibar</button>
                    <!--<button  (click)="openConfirmationDialog()" >Delete minibar</button>--> 
                 </span>
 

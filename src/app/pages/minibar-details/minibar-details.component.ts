@@ -15,6 +15,7 @@ export class MinibarDetailsComponent {
   minibarDetails: any = {}
   id: number = 0;
   minibar: any = [];
+  inventar : number = 0;
 
   constructor(private router: ActivatedRoute,
       public MinibarService : MinibarService, 
@@ -22,17 +23,27 @@ export class MinibarDetailsComponent {
       public dialog : MatDialog) { }
 
       ngOnInit(): void {
+        this.inventar = 0;
         this.router.paramMap.subscribe(params => {
           this.id = Number(params.get('id') ?? 0);
           this.MinibarService.getMinibarById(this.id).subscribe(data => {
             this.minibarDetails = data;
             console.log(this.minibarDetails);
+            if (this.minibarDetails.minibar_Items.length > 0) {
+              for (let i = 0; i < this.minibarDetails.minibar_Items.length; i++) {
+                this.inventar += this.minibarDetails.minibar_Items[i].amount;
+                console.log('Ovo je inventar' + this.inventar);
+              }
+            } else {
+              console.log('The minibar is empty');
+            }
           },
             err => {
               console.log(err)
               })
           
         })   
+       
       }
       openConfirmationDialog(): void {
         const dialogRef = this.dialog.open(ConfirmationComponent);
@@ -44,6 +55,7 @@ export class MinibarDetailsComponent {
           }
         });
       }
+      
 
       delete(){
         this.MinibarService.deleteMinibar(this.id).subscribe(res => {

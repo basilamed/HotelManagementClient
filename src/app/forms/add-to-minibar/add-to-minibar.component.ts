@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { ConfirmationComponent } from 'src/app/confirmation/confirmation.component';
@@ -21,10 +21,12 @@ interface item {
 export class AddToMinibarComponent {
   id: number = 0;
   items: item [] = [];
+  minibarDetails: any = {};
+  inventar : number = 0;
   
   form = new FormGroup({  
     item: new FormControl('', [Validators.required]),
-    amount: new FormControl('', [Validators.required, Validators.min(1), Validators.max(7)]),
+    amount: new FormControl('', [Validators.required, Validators.min(1), Validators.max(5)]),
   });
 
   constructor(
@@ -38,8 +40,26 @@ export class AddToMinibarComponent {
   ngOnInit(): void {
     this.route.paramMap.subscribe(params => {
       this.id = +(params.get('id') ?? 0);
-    });
-
+      this.MinibarService.getMinibarById(this.id).subscribe(data => {
+        this.minibarDetails = data;
+        console.log(this.minibarDetails);
+      },
+        err => {
+          console.log(err)
+      })
+      if (this.minibarDetails.minibar_Items) {
+        for (let i = 0; i < this.minibarDetails.minibar_Items.length; i++) {
+          this.inventar += this.minibarDetails.minibar_Items[i].amount;
+          console.log('Ovo je inventar' + this.inventar);
+        }
+      } else {
+        console.log('minibar_Items is undefined or null');
+      }
+    },
+      err => {
+        console.log(err)
+      })
+    
   this.ItemsService.getItems().subscribe(
     (res: any) => {
       this.items = res;
@@ -49,6 +69,7 @@ export class AddToMinibarComponent {
       console.log(err);
     }
   );}
+
 
   get Item() {
     return this.form.get('item');
