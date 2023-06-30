@@ -4,7 +4,14 @@
         <h2 class="text-theme-primary">Reservaton information</h2>
     </div>
     <div>
-        informacije
+        <div class="informacje">
+          <p>Guest full name: {{reservationDetails.user.firstName}} {{reservationDetails.user.lastName}}</p>
+          <p>Accomodation unit : {{reservationDetails.accommodationUnit.name}} </p>
+          <p>Check in date: {{reservationDetails.checkIn | date: 'dd/MM/yyyy'}}</p>
+          <p>Check out date: {{reservationDetails.checkOut | date: 'dd/MM/yyyy'}}</p>
+          <p>Number of guests: {{reservationDetails.numberOfPeople}}</p>
+
+        </div>
 
         <button (click)="openDialog()">Used minibar items</button>
     </div>

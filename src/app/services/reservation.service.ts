@@ -34,6 +34,10 @@ export class ReservationService {
     return this.http.get(`${this.url}/Reservation/not-approved`);
   }
 
+  getReservationById(id: number){
+    return this.http.get(`${this.url}/Reservation/get-by-id/${id}`);
+  }
+
   
 }
 export interface AddReservation {

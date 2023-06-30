@@ -1,35 +1,34 @@
-<!-- <div class="container">
-    <form [formGroup]="form">
-        <div class="text-center">
-          <br> 
-          <h1 class="text-theme-primary">Used items</h1>
-        </div>
-<div class="">
-    <div class="card">
-      <div class="card-body">
-        <div class="form-group">
-          <label>Select Item type type:</label>
-          <select formControlName="item" class="form-control" id="item" (change)="updateMaxQuantity.bind(this)()">
-            <option *ngFor="let i of items" [value]="i.item.id">{{ i.item.name }}</option>
-          </select>
-        </div>
-        <br>
-        <div class="form-group">
-            <label for="amount">Amount of item</label>
-            <input formControlName="amount" type="number" class="form-control" id="floor" placeholder="Enter the amount of items" >
-            <div *ngIf="Amount?.touched && Amount?.invalid">
-              <p *ngIf="Amount?.errors?.['required']" class="errors">Amount is required</p>
-              <p *ngIf="Amount?.errors?.['min']" class="errors">Amount has to be greater than 1</p>
-              <p *ngIf="Amount?.errors?.['max']" class="errors">Too big</p>
-            </div>
-          </div>
-          <button   (click)="addToReceipt()" [disabled]="form.invalid"> Add Item to receipt</button>
-          <br>
-          <button mat-button (click)="onCancel()">Cancel</button>
+<div class="container">
+  <form [formGroup]="form">
+      <div class="text-center">
+        <br> 
+        <h1 class="text-theme-primary">Add Items the customer used</h1>
+        <p>Please select the item that the customer used form the minibar</p>
       </div>
+<div class="">
+  <div class="card">
+    <div class="card-body">
+      <div class="form-group">
+        <label>Select Item type type:</label>
+        <select formControlName="selectedItem" (change)="onSelectionChange($event)" class="form-control" id="item">
+          <option *ngFor="let i of minibarDetails.minibar_Items" [value]="i.item.id">{{ i.item.name }}</option>
+        </select>
+      </div>
+      <br>
+      <div class="form-group">
+          <label for="amount">Amount of item</label>
+          <input formControlName="amount" type="number" class="form-control" id="amount" placeholder="Enter the amount of items">
+          <div *ngIf="Amount?.touched && Amount?.invalid">
+            <p *ngIf="Amount?.errors?.['required']" class="errors">Amount is required</p>
+            <p *ngIf="Amount?.errors?.['min']" class="errors">Amount has to be greater than 1</p>
+            <p *ngIf="Amount?.errors?.['max']" class="errors">Amount has to less than 7</p>
+          </div>
+        </div>
+      <button > Add Item to minibar</button>
     </div>
   </div>
+</div>
 </form>
 <br>
 <br>
-</div> -->
+</div>
