@@ -28,6 +28,9 @@ export class NavigationComponent implements OnInit{
   ChangePassword(id: number){
     this.router.navigate([`/changepw/${id}`])
   }
+  myReservations(id: number){
+    this.router.navigate([`/my-reservations/${id}`])
+  }
   
 }
  

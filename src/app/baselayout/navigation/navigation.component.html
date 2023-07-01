@@ -39,6 +39,9 @@
                 <li class="nav-item mr-5" *ngIf="userService.isOwner()">
                     <a routerLink="/approve" class="nav-link" *ngIf="userService.isOwner()">Users To Approve</a>
                 </li>
+                <li class="nav-item mr-5" *ngIf="userService.isGuest()">
+                    <a routerLink="/my-reservations" (click)="myReservations(user.id)" class="nav-link" *ngIf="userService.isGuest()">My Reservations</a>
+                </li>
                 
             </ul>
         </div>

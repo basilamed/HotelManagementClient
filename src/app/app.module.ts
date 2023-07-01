@@ -53,6 +53,7 @@ import { ApprovedReservationsComponent } from './pages/approved-reservations/app
 import { CreateReceiptComponent } from './pages/create-receipt/create-receipt.component';
 import { ReceiptItemsComponent } from './dialog/receipt-items/receipt-items.component';
 import { ReceiptComponent } from './pages/receipt/receipt.component';
+import { MyReservationsComponent } from './pages/my-reservations/my-reservations.component';
 
 @NgModule({
   declarations: [
@@ -92,6 +93,7 @@ import { ReceiptComponent } from './pages/receipt/receipt.component';
     CreateReceiptComponent,
     ReceiptItemsComponent,
     ReceiptComponent,
+    MyReservationsComponent,
    
   ],
   imports: [

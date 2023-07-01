@@ -1,0 +1,34 @@
+#section{
+    margin: auto;
+}
+h1{
+    text-align: center;
+    margin-top: 40px;
+}
+  #reservations{
+    margin-top: 20px;
+    box-shadow: 2px 2px 6px #c3c3c3;
+  }
+  button {
+    background-color: #c09d63;
+    color: #fff;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+  }
+  
+  /* Add a hover effect for buttons */
+  button:hover {
+    opacity: 0.8;
+  }
+  #Pending{
+    color: #c09d63;
+  }
+  #Approved{
+    color: green;
+  }
+  #Receipt{
+    color: #061018;
+  }

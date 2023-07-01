@@ -38,6 +38,10 @@ export class ReservationService {
     return this.http.get(`${this.url}/Reservation/get-by-id/${id}`);
   }
 
+  getReservationsByUserId(id: string){
+    return this.http.get(`${this.url}/Reservation/user-reservations/${id}`);
+  }
+
   
 }
 export interface AddReservation {
