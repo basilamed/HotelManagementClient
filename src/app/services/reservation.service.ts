@@ -42,6 +42,10 @@ export class ReservationService {
     return this.http.get(`${this.url}/Reservation/user-reservations/${id}`);
   }
 
+  getReservationsWithoutReceit(){
+    return this.http.get<any[]>(`${this.url}/Reservation/not-approved-without`);
+  }
+
   
 }
 export interface AddReservation {

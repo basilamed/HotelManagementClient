@@ -10,8 +10,11 @@
         <p>Check in date: {{reservationDetails?.checkIn | date: 'dd/MM/yyyy'}}</p>
         <p>Check out date: {{reservationDetails?.checkOut | date: 'dd/MM/yyyy'}}</p>
         <p>Number of guests: {{reservationDetails?.numberOfPeople}}</p>
-        <p>Price of unit for {{interval - 1}} nights: {{reservationDetails?.accommodationUnit?.prices[0].pricePerNight * (interval-1)}}$</p>
-
+        <p *ngIf="reservationDetails?.accommodationUnit?.prices && reservationDetails.accommodationUnit.prices.length > 0">
+          Price of unit for {{ interval }} nights:
+          {{ (reservationDetails.accommodationUnit.prices[0]?.pricePerNight || 0) * (interval) }}$
+        </p>
+        
       </div>
 
       <button (click)="openDialog()">Used minibar items</button>

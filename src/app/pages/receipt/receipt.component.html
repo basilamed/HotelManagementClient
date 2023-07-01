@@ -7,6 +7,7 @@
         <div class="informacje">
           <p>Guest full name: {{ receipt?.reservation?.user?.firstName }} {{ receipt?.reservation?.user?.lastName }}</p>
           <p>Accomodation unit : {{ receipt?.reservation?.accommodationUnit?.name }}</p>
+          <p>Accomodation unit price : {{ receipt?.reservation?.accommodationUnit?.prices[0].pricePerNight}} $</p>
           <p>Check in date: {{ receipt?.reservation?.checkIn | date: 'dd/MM/yyyy' }}</p>
           <p>Check out date: {{ receipt?.reservation?.checkOut | date: 'dd/MM/yyyy' }}</p>
           <p>Number of guests: {{ receipt?.reservation?.numberOfPeople }}</p>

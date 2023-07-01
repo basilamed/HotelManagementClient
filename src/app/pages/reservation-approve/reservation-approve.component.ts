@@ -22,7 +22,7 @@ constructor(
 
 
   ngOnInit(): void {
-    this.reservationService.getUnapprovedReservations().subscribe((response: any) => {
+    this.reservationService.getReservationsWithoutReceit().subscribe((response: any) => {
       this.reservations = response;
       console.log(this.reservations);
     })
