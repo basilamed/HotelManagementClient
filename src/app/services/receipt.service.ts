@@ -18,6 +18,10 @@ export class ReceiptService {
     return this.http.post(`${this.url}/Receipt/add-items-reservations`, dto);
   }
 
+  addServices(dto: SaveResItem){
+    return this.http.post(`${this.url}/Receipt/add-service`, dto);
+  }
+
   getReceiptByResId(id: number){
     return this.http.get(`${this.url}/Receipt/get-by-resId/${id}`);
   }
@@ -32,3 +36,4 @@ export interface SaveResItem {
   reservationId: number;
   amount: number;
 }
+

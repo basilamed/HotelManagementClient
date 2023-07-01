@@ -2,8 +2,8 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { ItemsService } from 'src/app/services/items.service';
-import { maxAmountValidator } from './custom.validators';
 import { ReceiptService, SaveResItem } from 'src/app/services/receipt.service';
+import { ReservationService } from 'src/app/services/reservation.service';
 
 @Component({
   selector: 'app-receipt-items',

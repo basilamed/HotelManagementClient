@@ -46,7 +46,10 @@ export class ReservationService {
     return this.http.get<any[]>(`${this.url}/Reservation/not-approved-without`);
   }
 
-  
+  addService(dto: ReservationServiceRS){
+    return this.http.post(`${this.url}/Reservation/add-service`, dto);
+  }
+
 }
 export interface AddReservation {
   checkIn: Date;
@@ -55,4 +58,10 @@ export interface AddReservation {
   accommodationUnitId: number;
   userId: string;
   serviceIds: number[];
+}
+
+export interface ReservationServiceRS {
+  reservationId: number;
+  serviceId: number;
+  uses: number;
 }

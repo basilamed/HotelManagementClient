@@ -54,6 +54,7 @@ import { CreateReceiptComponent } from './pages/create-receipt/create-receipt.co
 import { ReceiptItemsComponent } from './dialog/receipt-items/receipt-items.component';
 import { ReceiptComponent } from './pages/receipt/receipt.component';
 import { MyReservationsComponent } from './pages/my-reservations/my-reservations.component';
+import { ReceiptServicesComponent } from './dialog/receipt-services/receipt-services.component';
 
 @NgModule({
   declarations: [
@@ -94,6 +95,7 @@ import { MyReservationsComponent } from './pages/my-reservations/my-reservations
     ReceiptItemsComponent,
     ReceiptComponent,
     MyReservationsComponent,
+    ReceiptServicesComponent,
    
   ],
   imports: [

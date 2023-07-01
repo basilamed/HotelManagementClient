@@ -1,15 +1,15 @@
-<div class="container">
+<div class="container"> 
   <form [formGroup]="form">
       <div class="text-center">
         <br> 
-        <h1 class="text-theme-primary">Add Items the customer used</h1>
+        <h1 class="text-theme-primary">Add the items the customer used</h1>
         <p>Please select the item that the customer used form the minibar</p>
       </div>
 <div class="">
   <div class="card">
     <div class="card-body">
       <div class="form-group">
-        <label>Select Item type type:</label>
+        <label>Select Item type:</label>
         <select formControlName="selectedItem" (change)="onSelectionChange($event)" class="form-control" id="item">
           <option *ngFor="let i of minibarDetails.minibar_Items" [value]="i.item.id">{{ i.item.name }}</option>
         </select>
@@ -24,7 +24,7 @@
             <p *ngIf="Amount?.errors?.['max']" class="errors">Amount has to less than {{selectedAmount}}</p>
           </div>
         </div>
-      <button (click)="addItem()"> Add Item to minibar</button>
+      <button (click)="addItem()"> Add minibar items to receipt</button>
     </div>
   </div>
 </div>

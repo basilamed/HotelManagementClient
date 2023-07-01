@@ -1,0 +1,33 @@
+<div class="container"> 
+    <form [formGroup]="formC">
+        <div class="text-center">
+          <br> 
+          <h1 class="text-theme-primary">Add the services the customer used</h1>
+          <p>Please select the services that the cusomer used</p>
+        </div>
+  <div class="">
+    <div class="card">
+      <div class="card-body">
+        <div class="form-group">
+          <label>Select Service type:</label>
+          <select formControlName="item" class="form-control" id="item">
+            <option  *ngFor="let i of filteredServices" [value]="i.id" >{{ i.name }}</option>
+          </select>
+        </div>
+        <br>
+        <div class="form-group">
+            <label for="amount">Number of times</label>
+            <input formControlName="amount" type="number" class="form-control" id="amount" placeholder="Enter the amount of times the service was used">
+            <div *ngIf="Amount?.touched && Amount?.invalid">
+              <p *ngIf="Amount?.errors?.['required']" class="errors">Amount is required</p>
+              <p *ngIf="Amount?.errors?.['min']" class="errors">Amount has to be greater than 1</p>
+            </div>
+          </div>
+        <button (click)="addItem()"> Add Service to receipt</button>
+      </div>
+    </div>
+  </div>
+  </form>
+  <br>
+  <br>
+  </div>

@@ -5,6 +5,8 @@ import { ReceiptItemsComponent } from 'src/app/dialog/receipt-items/receipt-item
 import { MinibarService } from 'src/app/services/minibar.service';
 import { ReceiptService, SaveReceipt } from 'src/app/services/receipt.service';
 import { ReservationService } from 'src/app/services/reservation.service';
+import { ServicesService } from 'src/app/services/services.service';
+import { ReceiptServicesComponent } from 'src/app/dialog/receipt-services/receipt-services.component';
 @Component({
   selector: 'app-create-receipt',
   templateUrl: './create-receipt.component.html',
@@ -19,6 +21,7 @@ export class CreateReceiptComponent implements OnInit{
   interval : number = 0;
   date1: string = '';
   date2: string = '';
+  services: any = [];
 
 
   constructor( public dialog: MatDialog, 
@@ -26,7 +29,8 @@ export class CreateReceiptComponent implements OnInit{
     private ReservationService: ReservationService,
     private MinibarService : MinibarService,
     private receiptService: ReceiptService,
-    private router: Router
+    private router: Router,
+    private ServiceService:ServicesService
     ){}
 
   ngOnInit(): void {
@@ -47,8 +51,13 @@ export class CreateReceiptComponent implements OnInit{
         this.MinibarService.getMinibarById(this.minibarId).subscribe(data => {
           this.minibarDetails = data;
           console.log(this.minibarDetails);
-        });
+        })
+        this.ServiceService.getServices().subscribe(data => {
+          this.services = data;
+          console.log(this.services);
+        })
       }
+      
     )});
   }
 
@@ -58,6 +67,20 @@ export class CreateReceiptComponent implements OnInit{
         minibarId: this.minibarId, 
         minibarDetails: this.minibarDetails, 
         reservationDetails: this.reservationDetails}
+    });
+  
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+       
+      }
+    });
+  }
+
+  openDialogService(){
+    const dialogRef = this.dialog.open(ReceiptServicesComponent, {
+      data: {id: this.id,
+        reservationDetails: this.reservationDetails,
+        services: this.services}
     });
   
     dialogRef.afterClosed().subscribe(result => {
