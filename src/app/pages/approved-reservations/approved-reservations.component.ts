@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { ReservationService } from 'src/app/services/reservation.service';
 import { AccommodationUnitsService } from 'src/app/services/accommodation-units.service';
 import { Router } from '@angular/router';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-approved-reservations',
@@ -15,7 +16,7 @@ export class ApprovedReservationsComponent {
 
   constructor(private ReservationService: ReservationService, 
     private router: Router,
-  private accommodationUnitService: AccommodationUnitsService) { }
+  private accommodationUnitService: AccommodationUnitsService,  public userService: UserService) { }
 
   ngOnInit(): void {
     this.ReservationService.getApprovedReservations().subscribe((res: any) => {
@@ -35,6 +36,10 @@ export class ApprovedReservationsComponent {
 
   create(id:number){
     this.router.navigate([`create-receipt/${id}`])
+  }
+
+  receipt(id: number){
+    this.router.navigate([`receipt/${id}`])
   }
 
 }

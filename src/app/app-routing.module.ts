@@ -59,7 +59,7 @@ const routes: Routes = [
   { path: 'services', component: ServicesComponent, canActivate: [RoleGuard], data: {allowedRole: 1}},
   { path: 'request/:accId/:checkIn/:checkOut', component: RequestReservationComponent, canActivate: [RoleGuard], data: {allowedRole: 3}},
   { path: 'approveReservation', component: ReservationApproveComponent, canActivate: [RoleGuard], data: {allowedRole: 2}},
-  { path: 'approvedReservations', component: ApprovedReservationsComponent, canActivate: [RoleGuard], data: {allowedRole: 2}},
+  { path: 'approvedReservations', component: ApprovedReservationsComponent,  canActivate: [AuthGuard]},
   { path: 'create-receipt/:id', component: CreateReceiptComponent, canActivate: [RoleGuard], data: {allowedRole: 2}},
   { path: 'receipt/:id', component: ReceiptComponent, canActivate: [AuthGuard]},
   { path: 'my-reservations/:id', component: MyReservationsComponent, canActivate: [AuthGuard], data: {allowedRole: 3}},

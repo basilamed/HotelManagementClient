@@ -7,6 +7,7 @@ import { ReceiptService, SaveReceipt } from 'src/app/services/receipt.service';
 import { ReservationService } from 'src/app/services/reservation.service';
 import { ServicesService } from 'src/app/services/services.service';
 import { ReceiptServicesComponent } from 'src/app/dialog/receipt-services/receipt-services.component';
+import { UserService } from 'src/app/services/user.service';
 @Component({
   selector: 'app-create-receipt',
   templateUrl: './create-receipt.component.html',
@@ -30,7 +31,7 @@ export class CreateReceiptComponent implements OnInit{
     private MinibarService : MinibarService,
     private receiptService: ReceiptService,
     private router: Router,
-    private ServiceService:ServicesService
+    private ServiceService:ServicesService,
     ){}
 
   ngOnInit(): void {

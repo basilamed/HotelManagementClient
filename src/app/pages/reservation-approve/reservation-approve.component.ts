@@ -17,7 +17,7 @@ export class ReservationApproveComponent {
 
 constructor(
   private reservationService: ReservationService, 
-  private userService: UserService, 
+  public userService: UserService, 
   private accommodationUnitService: AccommodationUnitsService) { }
 
 
