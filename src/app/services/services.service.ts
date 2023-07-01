@@ -19,8 +19,13 @@ export class ServicesService {
   addService(service: AddService) {
     return this.http.post(this.url + '/Service/add', service);
   }
+
+  getOneTime(){
+    return this.http.get(this.url + '/Service/all-true');
+  }
 }
 export interface AddService {
   name: string;
   price: number;
+  type: boolean;
 }
