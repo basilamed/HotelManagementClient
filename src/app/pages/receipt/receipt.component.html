@@ -13,7 +13,7 @@
           <p>Number of guests: {{ receipt?.reservation?.numberOfPeople }}</p>
           <br>
           <p><b>Services used:</b></p>
-          <p *ngFor="let sr of receipt?.reservation?.services_Reservations">{{ sr?.service?.name }} - {{sr?.service?.price}}$</p>
+          <p *ngFor="let sr of receipt?.reservation?.services_Reservations">{{ sr?.service?.name }} - {{sr?.service?.price}}$ x {{sr?.uses}}</p>
           <br>
           <p><b>Minibar used items:</b></p>
           <p *ngFor="let mr of receipt?.reservation?.minibar_Reservations">{{ mr?.item?.name }} - {{ mr?.item?.price }}$ x {{ mr?.amount }}</p>
