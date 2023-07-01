@@ -35,6 +35,7 @@ export class RequestReservationComponent implements OnInit {
   formC!: FormGroup;
   numberOfDays: number = 1;
   error = false;
+  priceError = false;
   
   form = new FormGroup({
     numberOfPeople: new FormControl('', Validators.required)
@@ -65,6 +66,10 @@ export class RequestReservationComponent implements OnInit {
         this.price = data as any;
         console.log(this.price);
         console.log(this.price.accommodationUnit.capacity)
+      },
+      err => {
+        console.log(err);
+        this.priceError = true;
       });
       this.unitService.getAccommodationUnitById(this.id).subscribe(data => {
         this.unit = data as any;
