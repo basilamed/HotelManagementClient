@@ -25,6 +25,19 @@
                     </div>
                   </div>
                   <br>
+                  <div class="form-group">
+                    <label for="price">Service type</label>
+                    <br>
+                    <!-- <input formControlName="price" type="number" class="form-control" id="price" placeholder="Enter the service price"> -->
+                    <select id="type" class="form-control">
+                      <option value="false">One Time</option>
+                      <option value="true">Multiple times</option>
+                    </select>
+                    <div *ngIf="Price?.touched && Price?.invalid">
+                      <p *ngIf="Price?.errors?.['required']" class="errors">Service type is required</p>
+                    </div>
+                  </div>
+                  <br>
                <span><button (click)="openConfirmationDialog()" [disabled]="!form.valid">Add Service</button></span>
               </div>
           </form> 

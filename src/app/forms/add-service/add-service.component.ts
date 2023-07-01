@@ -25,6 +25,7 @@ export class AddServiceComponent {
   form = new FormGroup({  
     name: new FormControl('', [Validators.required]),
     price: new FormControl('', [Validators.required]),
+   
   });
 
   async openConfirmationDialog(): Promise<void> {
@@ -34,6 +35,7 @@ export class AddServiceComponent {
       if (result) {
         await this.addService();
         this.router.navigate([`/services`]);
+        
       }
     } catch (error) {
       console.log(error);
@@ -45,17 +47,22 @@ export class AddServiceComponent {
   get Price() {
     return this.form.get('price');
   }
+ 
+
   async addService() {
     
     // Pronađite liniju gde formirate objekat AccommodationUnit
     const service: AddService = {
      name: (this.Name?.value ?? ''),
     price: +(this.Price?.value ?? 0), 
+    type: true
    };
  
        this.ServiceService.addService(service).subscribe(data => {
          console.log(data);
          this.router.navigate(['/services']);
        })
+
+      console.log(service)
      }
 }

@@ -84,7 +84,7 @@ export class RequestReservationComponent implements OnInit {
       this.user = JSON.parse(userJSON);
     }
 
-    this.ServicesService.getServices().subscribe((data: any) => {
+    this.ServicesService.getOneTime().subscribe((data: any) => {
       this.services = data;
   
       const servicesFormArray = this.formC.get('servicesId') as FormArray;
