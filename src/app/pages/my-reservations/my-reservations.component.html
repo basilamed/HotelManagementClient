@@ -18,7 +18,7 @@
                         <p *ngIf="r.status === false && r.minibar_Reservations.length == 0" id="Pending">Your request is: pending</p>
                         <p *ngIf="r.status === true" id="Approved">Your request has been approved</p>
                         <p *ngIf="r.status === false && r.minibar_Reservations.length > 0" id="Receipt">Your request has a receipt</p>
-                        <button *ngIf="r.status === false && r.minibar_Reservations.length > 0" (click)="OpenReceipt(r.id)">View Receipt</button>
+                        <button *ngIf="r.receipts.length > 0" (click)="OpenReceipt(r.id)">View Receipt</button>
                     </mat-card-content>
                 </mat-card>
             </div>
