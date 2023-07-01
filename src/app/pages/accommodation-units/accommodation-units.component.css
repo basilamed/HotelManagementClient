@@ -1,6 +1,6 @@
 #img{
-    height: 200px;
-    width: auto;
+    height: 230px;
+    width: 380px;
     margin: 15px;
     box-shadow: 3px 3px 4px rgba(0, 0, 0, 0.5);
 }
@@ -17,11 +17,18 @@
     width: 90%;
     margin: auto;
   }
-  #unit{
+  .unit-show{
     margin: 20px;
-    border: 2px solid #c09d63;
+    
+    width: min-content;
+    padding: 10px;
   }
-
+  .unit-hide{
+    display: none;
+  }
   mat-icon{
     padding-top: 4px;
+  }
+  mat-card{
+    border: 2px solid #c09d63;
   }

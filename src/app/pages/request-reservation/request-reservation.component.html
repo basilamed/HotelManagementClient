@@ -10,7 +10,7 @@
             </mat-panel-description>
           </mat-expansion-panel-header>
           <p><b>Price for {{date1}} - {{date2}}: <p *ngIf="price.pricePerNight == null ">Current price not avalible</p>
-            <p *ngIf="price.pricePerNight > 0 ">{{price.pricePerNight * numberOfDays}} $</p>
+            <p *ngIf="price.pricePerNight > 0 ">{{price.pricePerNight * (numberOfDays-1)}} $</p>
           
           </b></p>
             <p>The room type: {{unit.type}}</p>

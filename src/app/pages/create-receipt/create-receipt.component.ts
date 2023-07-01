@@ -16,6 +16,9 @@ export class CreateReceiptComponent implements OnInit{
   reservationDetails: any = {};
   minibarId: number = 0;
   minibarDetails: any = {};
+  interval : number = 0;
+  date1: string = '';
+  date2: string = '';
 
 
   constructor( public dialog: MatDialog, 
@@ -31,6 +34,13 @@ export class CreateReceiptComponent implements OnInit{
       this.id = Number(params.get('id') ?? 0);
       this.ReservationService.getReservationById(this.id).subscribe(data => {
         this.reservationDetails = data;
+        this.date1 = this.reservationDetails.checkIn;
+        this.date2 = this.reservationDetails.checkOut;
+        const datum1 = new Date(this.date1);
+        const datum2 = new Date(this.date2);
+        const timeDifference = Math.abs(datum2.getTime() - datum1.getTime());
+        this.interval = Math.ceil(timeDifference / (1000 * 3600 * 24));
+        console.log(this.interval);
         console.log(this.reservationDetails);
         this.minibarId = this.reservationDetails.accommodationUnit.minibarId;
         console.log(this.minibarId);

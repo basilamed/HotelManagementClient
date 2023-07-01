@@ -8,9 +8,9 @@
             </div>
         </div>
         <br>
-        <div class="row justify-content-center col-8" id="units">
-            <div class="col-5" *ngFor="let u of units">
-                <div (click)="openInfo(u.id)" id="unit">
+        <div class="row justify-content-center col-6" id="units">
+            <div class="col-5" *ngFor="let u of units" [ngClass]="{'unit-show': u.prices.length !== 0 || !UserService.isGuest() , 'unit-hide': !(u.prices.length !== 0 || !UserService.isGuest())}">
+                <div (click)="openInfo(u.id)" id="unit" *ngIf="u.prices.length !== 0 || !UserService.isGuest()">
                 <mat-card >
                     <mat-card-header>
                         <mat-card-title>{{u.name}}</mat-card-title>
@@ -19,6 +19,7 @@
                     <br>
                     <mat-card-content>
                         <p *ngIf="u.prices.length !== 0"><b>Current price: {{u.prices[0].pricePerNight}}€</b></p>
+                        <p *ngIf="u.prices.length == 0"><b>Current price is not availble</b></p>
                         <p>The room type: {{u.type}} <mat-icon>bed</mat-icon></p>
                         <p>The floor that the room is on: {{u.floor}}</p>
                         <p>The maximum capacity of the room: {{u.capacity}}</p>

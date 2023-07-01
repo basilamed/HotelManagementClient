@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { AccommodationUnitsService } from 'src/app/services/accommodation-units.service';
 import { Router } from '@angular/router';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-accommodation-units',
@@ -8,11 +9,19 @@ import { Router } from '@angular/router';
   styleUrls: ['./accommodation-units.component.css']
 })
 export class AccommodationUnitsComponent {
+
   units: any [] = [];
- 
-  constructor(private servise: AccommodationUnitsService, private router: Router) { }
+  user: any = [];
+  
+  constructor(private servise: AccommodationUnitsService, 
+    private router: Router,
+    public UserService: UserService) { }
 
   ngOnInit(): void {
+    const userJSON = localStorage.getItem('user');
+    if (userJSON) {
+      this.user = JSON.parse(userJSON);
+    }
     this.servise.getAccommodationUnits().subscribe((res: any) => {
       this.units = res;
       console.log(this.units)
