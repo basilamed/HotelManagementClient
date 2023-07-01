@@ -18,6 +18,7 @@ export class AccommodationUnitDetailsComponent implements OnInit {
   accommodationUnit: any = {}
   id: number = 0;
   user: any = [];
+  success: boolean = false;
 
   constructor(private router: ActivatedRoute,
      public AccommodationUnitsService: AccommodationUnitsService,
@@ -25,6 +26,9 @@ export class AccommodationUnitDetailsComponent implements OnInit {
       public Router : Router) { }
 
   ngOnInit(): void {
+    this.router.queryParams.subscribe(params => {
+      this.success = params['success'] === 'true';
+    });
     this.router.paramMap.subscribe(params => {
       this.id = Number(params.get('id') ?? 0);
       this.AccommodationUnitsService.getAccommodationUnitById(this.id).subscribe(data => {

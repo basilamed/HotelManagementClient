@@ -34,6 +34,7 @@ export class RequestReservationComponent implements OnInit {
   services: any = [];
   formC!: FormGroup;
   numberOfDays: number = 1;
+  error = false;
   
   form = new FormGroup({
     numberOfPeople: new FormControl('', Validators.required)
@@ -132,8 +133,12 @@ export class RequestReservationComponent implements OnInit {
     
     this.ReservationService.requestReservation(Reservation).subscribe(data => {
       console.log(data);
-      this.Route.navigate(['/acc']);
-    })
+      this.Route.navigate([`/acc/${this.id}`], { queryParams: { success: true } });
+    },
+    err => {
+      console.log(err);
+      this.error = true;
+    });
   }
   
 }

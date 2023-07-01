@@ -1,4 +1,5 @@
 <section>
+  <div class="alert alert-danger" *ngIf="error">Something went wrong</div>
     <mat-accordion>
         <mat-expansion-panel [expanded]="true" hideToggle>
           <mat-expansion-panel-header>
@@ -74,5 +75,5 @@
         </form>
         </mat-expansion-panel>
       </mat-accordion>
-      <button (click)="requestReservation()" [disabled]="!form.valid && !formC.valid">Request reservation</button>
+      <button (click)="requestReservation()" [disabled]="!form.valid || !formC.valid">Request reservation</button>
 </section>
