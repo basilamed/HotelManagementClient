@@ -50,6 +50,10 @@ export class ReservationService {
     return this.http.post(`${this.url}/Reservation/add-service`, dto);
   }
 
+  getAllReservations(){
+    return this.http.get(`${this.url}/Reservation/all-reservations`);
+  } 
+
 }
 export interface AddReservation {
   checkIn: Date;
