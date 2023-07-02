@@ -23,7 +23,7 @@ export class AccommodationUnitsComponent {
       this.user = JSON.parse(userJSON);
     }
     this.servise.getAccommodationUnits().subscribe((res: any) => {
-      this.units = res;
+      this.units = res.items;
       console.log(this.units)
     },
     err => {
