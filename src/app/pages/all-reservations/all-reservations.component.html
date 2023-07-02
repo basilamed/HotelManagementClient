@@ -14,7 +14,7 @@
                     <mat-card-content>
                         <p>Check in date: {{r.checkIn | date:'shortDate'}}</p>
                         <p>Check out date: {{r.checkOut | date:'shortDate'}}</p>
-                        <p>Unit name: {{getUnitName(r.accommodationUnitId)}}</p>
+                        <p>Unit name: {{r.accommodationUnit.name}}</p>
                         <p *ngIf="r.status === false && r.minibar_Reservations.length == 0" id="Pending">This request is: pending</p>
                         <p *ngIf="r.status === true && r.receipts.length == 0 " id="Approved">This approved request doesnt have a receipt</p>
                         <p *ngIf="r.receipts.length > 0" id="Receipt">This request has a receipt</p>

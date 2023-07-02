@@ -14,9 +14,9 @@
                     <mat-card-content>
                         <p>Check in date: {{u.checkIn | date:'shortDate'}}</p>
                         <p>Check out date: {{u.checkOut | date:'shortDate'}}</p>
-                        <p>Unit name: {{getUnitName(u.accommodationUnitId)}}</p>
+                        <p>Unit name: {{u.accommodationUnit.name}}</p>
                         <button  (click)="create(u.id)" *ngIf="userService.isEmployee()">Create a receipt</button>
-                        <button  (click)="receipt(u.id)">Receipt</button>
+                        <!-- <button  (click)="receipt(u.id)">Receipt</button> -->
                     </mat-card-content>
                 </mat-card>
             </div>

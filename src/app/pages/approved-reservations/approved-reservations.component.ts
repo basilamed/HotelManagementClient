@@ -23,16 +23,16 @@ export class ApprovedReservationsComponent {
       this.reservations = res;
       console.log(this.reservations)
     })
-    this.accommodationUnitService.getAccommodationUnits().subscribe((response: any) => {
-      this.units = response;
-      console.log(this.units);
-    }) 
+    // this.accommodationUnitService.getAccommodationUnits().subscribe((response: any) => {
+    //   this.units = response.items; 
+    //   console.log(this.units);
+    // }); 
 
   }
-  getUnitName(unitId: number): string {
-    const unit = this.units.find(u => u.id === unitId);
-    return unit ? unit.name : 'N/A'; // Return the unit name or 'N/A' if not found
-  }
+  // getUnitName(unitId: number): string {
+  //   const unit = this.units.find(u => u.id === unitId);
+  //   return unit ? unit.name : 'N/A'; // Return the unit name or 'N/A' if not found
+  // }
 
   create(id:number){
     this.router.navigate([`create-receipt/${id}`])

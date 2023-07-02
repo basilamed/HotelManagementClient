@@ -26,15 +26,15 @@ export class AllReservationsComponent {
     err => {
       console.log(err)
     })
-    this.accommodationUnitService.getAccommodationUnits().subscribe((response: any) => {
-      this.units = response;
-      console.log(this.units);
-    }) 
+    // this.accommodationUnitService.getAccommodationUnits().subscribe((response: any) => {
+    //   this.units = response;
+    //   console.log(this.units);
+    // }) 
   }
-  getUnitName(unitId: number): string {
-    const unit = this.units.find(u => u.id === unitId);
-    return unit ? unit.name : 'N/A'; // Return the unit name or 'N/A' if not found
-  }
+  // getUnitName(unitId: number): string {
+  //   const unit = this.units.find(u => u.id === unitId);
+  //   return unit ? unit.name : 'N/A'; // Return the unit name or 'N/A' if not found
+  // }
 
   OpenReceipt(id: Number) {
     this.router.navigate(['/receipt', id]);

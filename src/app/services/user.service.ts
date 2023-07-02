@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { env } from '../env';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -8,7 +9,30 @@ import { env } from '../env';
 export class UserService {
 
   url = env.url;
+  private currentUserSubject: BehaviorSubject<any> = new BehaviorSubject<any>(null);
+  private _isLoggedIn = new BehaviorSubject<boolean>(false);
   constructor(private http: HttpClient) { }
+
+  login_user(log: any){
+    const isLoggedIn = log && log.token;
+    if(isLoggedIn){
+      this._isLoggedIn.next(true);
+    } else {
+      this._isLoggedIn.next(false);
+    }
+  }
+
+  get isLoggedIn(): Observable<boolean> {
+    return this._isLoggedIn.asObservable();
+  }
+
+  getCurrentUser(): Observable<any> {
+    return this.currentUserSubject.asObservable();
+  }
+
+  setCurrentUser(user: any) {
+    this.currentUserSubject.next(user);
+  }
 
   register(dto: RegisterDto){
     return this.http.post(`${this.url}/User/register`, dto);
