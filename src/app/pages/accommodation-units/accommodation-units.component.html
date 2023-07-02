@@ -8,6 +8,31 @@
             </div>
         </div>
         <br>
+      <!-- <div class="row">
+            <div class="col-md-12 text-center">
+              <div class="filter-controls">
+                <label for="orderBy">Order By:</label>
+                <select id="orderBy">
+                  <option value="asc">Ascending price</option>
+                  <option value="desc">Descending price</option>
+                </select>
+                
+                <label for="checkIn">Check-In Date:</label>
+                <input type="date" id="checkIn">
+                
+                <label for="checkOut">Check-Out Date:</label>
+                <input type="date" id="checkOut">
+
+                <label for="floor">Floor:</label>
+                <input type="number" id="floor">
+
+                <label for="numberOfPeople">Number of people:</label>
+                <input type="number" id="numberOfPeople">
+                
+                <button>Apply Filters</button>
+              </div>
+            </div>
+          </div>--> 
         <div class="row justify-content-center col-6" id="units">
             <div class="col-5" *ngFor="let u of units" [ngClass]="{'unit-show': u.prices.length !== 0 || !UserService.isGuest() , 'unit-hide': !(u.prices.length !== 0 || !UserService.isGuest())}">
                 <div (click)="openInfo(u.id)" id="unit" *ngIf="u.prices.length !== 0 || !UserService.isGuest()">

@@ -26,6 +26,10 @@ export class ReceiptService {
     return this.http.get(`${this.url}/Receipt/get-by-resId/${id}`);
   }
 
+  getAllReceipts(){
+    return this.http.get(`${this.url}/Receipt/get-all`);
+  }
+
 
 }
 

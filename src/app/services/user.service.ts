@@ -39,6 +39,14 @@ export class UserService {
     return false;
   }
 
+  isAccountant(){
+    const user = JSON.parse(localStorage.getItem('user') || '{}');
+    if(user.roleId === 4){
+      return true;
+    }
+    return false;
+  }
+
   hasImage(){
     const user = JSON.parse(localStorage.getItem('user') || '{}');
     if(user.image){

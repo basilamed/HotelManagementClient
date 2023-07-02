@@ -56,6 +56,7 @@ import { ReceiptComponent } from './pages/receipt/receipt.component';
 import { MyReservationsComponent } from './pages/my-reservations/my-reservations.component';
 import { ReceiptServicesComponent } from './dialog/receipt-services/receipt-services.component';
 import { AllReservationsComponent } from './pages/all-reservations/all-reservations.component';
+import { ReceiptsComponent } from './pages/receipts/receipts.component';
 
 @NgModule({
   declarations: [
@@ -98,6 +99,7 @@ import { AllReservationsComponent } from './pages/all-reservations/all-reservati
     MyReservationsComponent,
     ReceiptServicesComponent,
     AllReservationsComponent,
+    ReceiptsComponent,
    
   ],
   imports: [

@@ -1,0 +1,47 @@
+<section class="featured-section col-md-8" id="section">
+    <div>
+        <div class="row"> 
+            <div class="col-md-12 text-center">
+                <br>
+                <h1>Receipts</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <p>This is a table with the earning of each month</p>
+              <table>
+                <thead>
+                  <tr>
+                    <th *ngFor="let month of monthNames">{{ month }}</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td *ngFor="let amount of monthlyAmounts">{{ amount }}€</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class="row col-md-12 text-center">
+            <p id="p">This is a list of all receipts.</p>
+          </div>
+        <div class="row justify-content-center">
+            <div class="col-lg-5" *ngFor="let r of receipts">
+                <div>
+                <mat-card  id="reservations">
+                    <mat-card-content>
+                        <p>Check in date: {{r.reservation.checkIn | date:'dd/MM/yyyy'}}</p>
+                        <p>Check out date: {{r.reservation.checkOut | date:'dd/MM/yyyy'}}</p>
+                        <p>Total: {{r.totalPrice}}</p>
+                        <button (click)="OpenReceipt(r.reservationId)">View Full Receipt</button>
+                    </mat-card-content>
+                </mat-card>
+            </div>
+            <br>
+            </div>
+        </div>
+    </div>
+</section>
+
+
