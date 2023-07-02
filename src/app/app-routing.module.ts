@@ -31,6 +31,7 @@ import { ApprovedReservationsComponent } from './pages/approved-reservations/app
 import { CreateReceiptComponent } from './pages/create-receipt/create-receipt.component';
 import { ReceiptComponent } from './pages/receipt/receipt.component';
 import { MyReservationsComponent } from './pages/my-reservations/my-reservations.component';
+import { AllReservationsComponent } from './pages/all-reservations/all-reservations.component';
 
 const routes: Routes = [
   { path: 'register', component: RegisterComponent},
@@ -63,6 +64,7 @@ const routes: Routes = [
   { path: 'create-receipt/:id', component: CreateReceiptComponent, canActivate: [RoleGuard], data: {allowedRole: 2}},
   { path: 'receipt/:id', component: ReceiptComponent, canActivate: [AuthGuard]},
   { path: 'my-reservations/:id', component: MyReservationsComponent, canActivate: [AuthGuard], data: {allowedRole: 3}},
+  { path: 'all-reservations', component: AllReservationsComponent, canActivate: [RoleGuard], data: {allowedRole: 1}}
 ];
 
 @NgModule({

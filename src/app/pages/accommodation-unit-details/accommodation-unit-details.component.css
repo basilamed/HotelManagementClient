@@ -1,11 +1,4 @@
-img{
-    width: 350px;
-    height: auto;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    box-shadow: 0 0 5px 0 rgba(0,0,0,.2);
-    cursor: pointer;
-}
+
 p{
     font-size: 1.2rem;
     margin: 0;
@@ -14,6 +7,8 @@ p{
 h1{
     text-align: center;
     font-weight: 500;
+    width: 100%;
+    margin-top: 10px;
 
 }
 button{
@@ -50,7 +45,7 @@ span{
 .section{
     width: 80%;
     margin :auto;
-    padding: 50px;
+    padding: 40px;
 }
 .container{
     display: flex;
@@ -63,3 +58,38 @@ td{
     border: 1px solid #c3c3c3;
     padding: 10px;
 }
+.slika-tekst {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between; /* Add this to create space between the image and text */
+  }
+  
+  .slika-tekst img {
+    flex-basis: 40%; /* Set the image width to 40% */
+    height: 300px;
+    max-width: 100%;
+    margin: auto;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 5px 0 rgba(0, 0, 0, .2);
+    cursor: pointer;
+  }
+  
+  .text {
+    max-width: 550px;
+    height: auto;
+    margin: auto;
+    padding: 10px;
+  }
+  .text-unutrasnji{
+    width: 100%;
+    text-align: justify;
+  }
+  .opis::first-letter{
+    font-size: 3rem;
+    line-height: 1;
+    position: absolute;
+    top: -1.5em; /* Adjust the value to position the first letter */
+    left: 0;
+    margin-right: 5px;
+  }

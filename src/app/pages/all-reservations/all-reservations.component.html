@@ -1,0 +1,30 @@
+<section class="featured-section col-md-8" id="section">
+    <div>
+        <div class="row"> 
+            <div class="col-md-12 text-center">
+                <h1>Reservations</h1>
+                <p id="p">This is a list of all reservations.</p>
+            </div>
+        </div>
+        <br>
+        <div class="row justify-content-center">
+            <div class="col-lg-5" *ngFor="let r of reservations">
+                <div>
+                <mat-card  id="reservations">
+                    <mat-card-content>
+                        <p>Check in date: {{r.checkIn | date:'shortDate'}}</p>
+                        <p>Check out date: {{r.checkOut | date:'shortDate'}}</p>
+                        <p>Unit name: {{getUnitName(r.accommodationUnitId)}}</p>
+                        <p *ngIf="r.status === false && r.minibar_Reservations.length == 0" id="Pending">This request is: pending</p>
+                        <p *ngIf="r.status === true && r.receipts.length == 0 " id="Approved">This approved request doesnt have a receipt</p>
+                        <p *ngIf="r.receipts.length > 0" id="Receipt">This request has a receipt</p>
+                        <button *ngIf="r.receipts.length == 0" (click)="OpenInfo(r.accommodationUnitId)">View Accommodation unit details</button>
+                        <button *ngIf="r.receipts.length > 0" (click)="OpenReceipt(r.id)">View Receipt</button>
+                    </mat-card-content>
+                </mat-card>
+            </div>
+            <br>
+            </div>
+        </div>
+    </div>
+</section>

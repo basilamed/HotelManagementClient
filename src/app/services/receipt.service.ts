@@ -25,6 +25,8 @@ export class ReceiptService {
   getReceiptByResId(id: number){
     return this.http.get(`${this.url}/Receipt/get-by-resId/${id}`);
   }
+
+
 }
 
 export interface SaveReceipt {

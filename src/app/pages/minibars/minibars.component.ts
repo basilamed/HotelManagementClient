@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
   templateUrl: './minibars.component.html',
   styleUrls: ['./minibars.component.css']
 })
-export class MinibarsComponent {
+export class MinibarsComponent { 
   minibars: any [] = [];
   id: number = 0;
 

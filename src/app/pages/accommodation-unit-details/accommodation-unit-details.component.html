@@ -3,19 +3,24 @@
     <div class="container">
         <table>
             <tr>
-                <td><img [src]="accommodationUnit.image" alt="hotel room"></td>
-                <td><h1 class="">{{accommodationUnit.name}} room</h1><br>
-                        <ul class="list-container" *ngIf="accommodationUnit.aUnit_Characteristics !== ''">
-                            <ng-container *ngFor="let u of accommodationUnit.aUnit_Characteristics">
-                                 <li [value]="u.characteristics.id" class="list-item">
-                              * {{ u.characteristics.name }}
-                            </li>
-                          </ng-container>
-                          <li  class="list-item">* Internet Access</li>
-                          <li  class="list-item">* TV</li>
-                          <li  class="list-item">* Free Toiletries</li>
-                        </ul>
-                     <p>{{accommodationUnit.description}}</p>
+                <td class="slika-tekst">
+                    <img [src]="accommodationUnit.image" alt="hotel room">
+                    <div class="text"> 
+                        <div class="text-unutrasnji">
+                            <h1 class="">{{accommodationUnit.name}} room</h1><br>
+                            <ul class="list-container" *ngIf="accommodationUnit.aUnit_Characteristics !== ''">
+                                <ng-container *ngFor="let u of accommodationUnit.aUnit_Characteristics">
+                                     <li [value]="u.characteristics.id" class="list-item">
+                                         * {{ u.characteristics.name }}
+                                     </li>
+                                </ng-container>
+                              <li  class="list-item">* Internet Access</li>
+                              <li  class="list-item">* TV</li>
+                              <li  class="list-item">* Free Toiletries</li>
+                            </ul>
+                            <p class="opis">{{accommodationUnit.description}}</p>
+                        </div>
+                    </div>
                 </td>
             </tr>
             <tr>
@@ -45,8 +50,5 @@
                 </td>
             </tr>
         </table>
-        
         </div>
-       
-    
 </div>
