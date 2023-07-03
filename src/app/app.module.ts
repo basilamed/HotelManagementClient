@@ -57,6 +57,7 @@ import { MyReservationsComponent } from './pages/my-reservations/my-reservations
 import { ReceiptServicesComponent } from './dialog/receipt-services/receipt-services.component';
 import { AllReservationsComponent } from './pages/all-reservations/all-reservations.component';
 import { ReceiptsComponent } from './pages/receipts/receipts.component';
+import {MatPaginatorModule} from '@angular/material/paginator';
 
 @NgModule({
   declarations: [
@@ -120,7 +121,8 @@ import { ReceiptsComponent } from './pages/receipts/receipts.component';
     MatNativeDateModule,
     MatFormFieldModule,
     MatInputModule,
-    MatExpansionModule
+    MatExpansionModule,
+    MatPaginatorModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { env } from 'src/app/env';
 
 @Injectable({ 
@@ -15,6 +15,49 @@ export class AccommodationUnitsService {
   getAccommodationUnits() {
     return this.http.get(this.url + '/AccommodationUnit/get-all');
   }
+
+  getFilteredAccommodationUnits(filters: UnitQueryDto) {
+    let params = new HttpParams();
+  
+    if (filters.price) {
+      params = params.append('price', filters.price.toString());
+    }
+
+    if (filters.sortBy) {
+      params = params.append('SortBy', filters.sortBy);
+    }
+
+    if (filters.isSortAscending != null) {
+      params = params.append('IsSortAscending', filters.isSortAscending.toString());
+    }
+
+    if (filters.floor) {
+      params = params.append('Floor', filters.floor.toString());
+    }
+
+    if (filters.numberOfPeople) {
+      params = params.append('NumberOfPeople', filters.numberOfPeople.toString());
+    }
+
+    if (filters.periodOf) {
+      params = params.append('PeriodOf', new Date(filters.periodOf).toISOString());
+    }
+    
+    if (filters.periodTo) {
+      params = params.append('PeriodTo', new Date(filters.periodTo).toISOString());
+    }
+
+    if (filters.page) {
+      params = params.append('Page', filters.page.toString());
+    }
+
+    if (filters.pageSize) {
+      params = params.append('PageSize', filters.pageSize.toString());
+    }
+  
+    return this.http.get(this.url + '/AccommodationUnit/get-all', { params: params });
+  }
+  
 
   getAccommodationUnitById(id: number) {
     return this.http.get(this.url + '/AccommodationUnit/get-by-id/' + id);
@@ -51,6 +94,18 @@ export interface UpdateAccommodationUnit {
   name: string;
   type: string;
   description: string;
+}
+
+export interface UnitQueryDto {
+  price?: number;
+  sortBy?: string;
+  isSortAscending?: boolean;
+  floor?: number;
+  numberOfPeople?: number;
+  periodOf?: string;
+  periodTo?: string;
+  page: number;
+  pageSize: number;
 }
 
 
