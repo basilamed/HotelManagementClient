@@ -152,7 +152,7 @@ export class AddAccomodationComponent implements OnInit {
 
       this.AccommodationUnitsService.addAccommodationUnit(AccommodationUnit).subscribe(data => {
         console.log(data);
-        this.router.navigate(['']);
+        this.router.navigate(['/acc']);
       })
     }
   }

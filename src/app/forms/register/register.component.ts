@@ -13,6 +13,7 @@ import { Router } from '@angular/router';
 export class RegisterComponent {
 
   error: boolean = false;
+  loading = false;
   constructor(private userService: UserService, private router: Router) { }
 
   form = new FormGroup({
@@ -51,6 +52,7 @@ login (){
       password: this.Password?.value ?? '',
       roleId: +(document.getElementById('role') as HTMLInputElement).value
     }
+    this.loading = true;
     this.userService.register(dto).subscribe((data: any) => {
       console.log('User registered successfully:', data);
       if(dto.roleId === 2){
@@ -59,10 +61,12 @@ login (){
       else{
         this.router.navigate(['/login'] , { queryParams: { success2: 'true' } });
       }
+      this.loading = false;
     },
     (error: any) => {
       console.error('Error registering user:', error);
       this.error = true;
+      this.loading = false;
     })
   }
 }

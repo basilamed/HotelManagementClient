@@ -15,7 +15,7 @@
       </ng-container>
     <ng-container matColumnDef="jedinica">
         <th mat-header-cell *matHeaderCellDef>Jedinica</th>
-        <td mat-cell *matCellDef="let reservation">{{ getUnitName(reservation.accommodationUnitId) }}</td>
+        <td mat-cell *matCellDef="let reservation">{{ reservation.accommodationUnit.name }}</td>
     </ng-container>
     <ng-container matColumnDef="datum_od">
         <th mat-header-cell *matHeaderCellDef>Datum od</th>

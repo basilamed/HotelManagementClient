@@ -49,7 +49,7 @@ export class AddMinibarComponent {
  
        this.MinibarService.addMinibar(minibar).subscribe(data => {
          console.log(data);
-         this.router.navigate(['/minibars']);
+         this.router.navigate(['/minibar']);
        })
      }
 }

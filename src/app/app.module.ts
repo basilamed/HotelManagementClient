@@ -58,6 +58,7 @@ import { ReceiptServicesComponent } from './dialog/receipt-services/receipt-serv
 import { AllReservationsComponent } from './pages/all-reservations/all-reservations.component';
 import { ReceiptsComponent } from './pages/receipts/receipts.component';
 import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 @NgModule({
   declarations: [
@@ -122,7 +123,8 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     MatFormFieldModule,
     MatInputModule,
     MatExpansionModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatProgressSpinnerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

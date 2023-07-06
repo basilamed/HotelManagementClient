@@ -2,6 +2,9 @@
    
     <div class="container">
       <div class="text-center">
+        <div class="spinner-container d-flex justify-content-center" *ngIf="loading">
+          <mat-spinner></mat-spinner>
+        </div>
         <h2 class="text-theme-primary">Login</h2>
         <p>Please enter your information to log in</p>
         <div *ngIf="error" class="alert ">Email and password do not match!</div>

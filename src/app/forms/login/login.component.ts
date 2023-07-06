@@ -15,6 +15,8 @@ export class LoginComponent implements OnInit{
   error: boolean = false;
   success = false;
   success2 = false;
+  loading = false;
+
   constructor(private userService: UserService, @Inject(Router) private router: Router, private route: ActivatedRoute) { }
   ngOnInit(): void {
     this.route.queryParams.subscribe(params => {
@@ -48,6 +50,7 @@ export class LoginComponent implements OnInit{
       userName: formData.email,
       password: formData.password
     };
+    this.loading = true;
     this.userService.login(credentials).subscribe((response: any) => {
       if(response && response.token){
         console.log(response);
@@ -55,11 +58,13 @@ export class LoginComponent implements OnInit{
         localStorage.setItem('user', JSON.stringify(response.user));
         this.userService.setCurrentUser(response.user);
         this.router.navigate(['']);
+        this.loading = false;
       }
     },
     (err) => {
       this.error = true;
       console.log(err);
+      this.loading = false;
     }
     );
   }
